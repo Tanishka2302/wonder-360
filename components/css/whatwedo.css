@@ -1,0 +1,159 @@
+/* SECTION */
+.what {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+
+  padding: 120px 8%;
+  background: #000;
+  color: #fff;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* GOLD GLOW */
+.what::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212,175,55,0.12), transparent);
+  left: 10%;
+  top: 20%;
+  filter: blur(120px);
+}
+
+/* IMAGE WRAPPER */
+.what-image {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+/* IMAGE */
+.what-image img {
+  width: 100%;
+  border-radius: 20px;
+
+  transition: transform 0.5s ease, filter 0.4s ease;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.7),
+    0 0 40px rgba(212,175,55,0.15);
+
+  filter: brightness(0.85) contrast(1.05);
+
+  /* 🔥 FLOAT */
+  animation: float3D 6s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+@keyframes float3D {
+  0%   { transform: translateY(0px) translateZ(0px); }
+  50%  { transform: translateY(-12px) translateZ(20px); }
+  100% { transform: translateY(0px) translateZ(0px); }
+}
+
+/* HOVER EFFECT */
+.what-image:hover img {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+/* LIGHT SWEEP */
+.what-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.15),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  transition: 0.8s;
+}
+
+.what-image:hover::after {
+  left: 130%;
+}
+
+/* CONTENT */
+.what-content {
+  flex: 1;
+  max-width: 50%;
+}
+
+/* TITLE */
+.what h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212,175,55,0.5);
+}
+
+/* DESCRIPTION */
+.what-desc {
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+/* LIST */
+.what-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.what-item span {
+  color: #d4af37;
+  font-size: 18px;
+}
+
+.what-item p {
+  color: #bbb;
+}
+
+/* BUTTON */
+.what-btn {
+  margin-top: 25px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  color: #000;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.what-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(212,175,55,0.4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .what {
+    flex-direction: column;
+  }
+
+  .what-image,
+  .what-content {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,173 @@
+/* ================= SECTION ================= */
+
+.contact {
+  position: relative;
+  padding: 140px 8%;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+.card {
+  text-decoration: none;
+  color: inherit;
+}
+/* ================= GOLD MOVING LINES ================= */
+
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    repeating-linear-gradient(
+      120deg,
+      transparent,
+      transparent 40px,
+      rgba(212,175,55,0.05) 41px,
+      rgba(212,175,55,0.05) 42px
+    );
+
+  animation: moveLines 10s linear infinite;
+}
+
+@keyframes moveLines {
+  from { transform: translateX(0); }
+  to { transform: translateX(200px); }
+}
+
+/* ================= CONTAINER ================= */
+
+.contact-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ================= TITLE ================= */
+
+.contact h2 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212,175,55,0.6);
+}
+
+/* ================= SUB ================= */
+
+.contact-sub {
+  color: #aaa;
+  margin-bottom: 60px;
+}
+
+/* ================= FORM ================= */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ROW */
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.row input {
+  flex: 1;
+}
+
+/* INPUTS */
+
+.contact input,
+.contact textarea {
+  padding: 18px 20px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: #fff;
+  outline: none;
+
+  transition: 0.3s;
+}
+
+/* FOCUS */
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 10px rgba(212,175,55,0.2);
+}
+
+/* PLACEHOLDER */
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+  color: #777;
+}
+
+/* ================= BUTTON ================= */
+
+.contact-btn {
+  margin-top: 10px;
+  padding: 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #d4af37, #b8962e);
+  color: #000;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.contact-btn:hover {
+  box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .contact h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ================= POPUP ================= */
+
+.contact-popup {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgba(20,20,20,0.95);
+  color: #fff;
+
+  padding: 16px 28px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(212,175,55,0.4);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.8),
+    0 0 20px rgba(212,175,55,0.2);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 14px;
+  z-index: 999;
+}

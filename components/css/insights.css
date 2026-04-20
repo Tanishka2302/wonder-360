@@ -1,0 +1,24 @@
+.insights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+}
+
+.insights .mini {
+  color: #d4af37;
+  letter-spacing: 2px;
+}
+
+.insights h2 {
+  font-size: 32px;
+}
+
+.insights .desc {
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.insights span {
+  color: #d4af37;
+}

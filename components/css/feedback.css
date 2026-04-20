@@ -1,0 +1,166 @@
+/* ================= SECTION ================= */
+
+.feedback {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= CARD ================= */
+
+.feedback-card {
+  position: relative;
+
+  width: 80%;
+  max-width: 900px;
+
+  padding: 50px 60px;
+  border-radius: 20px;
+
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(12px);
+
+  color: #fff;
+
+  box-shadow:
+    0 20px 80px rgba(0,0,0,0.8),
+    0 0 40px rgba(212,175,55,0.15);
+
+  overflow: hidden;
+}
+
+/* 🔥 GOLD GLOW BG */
+.feedback-card::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+
+  background: radial-gradient(circle, rgba(212,175,55,0.12), transparent);
+
+  top: -100px;
+  right: -100px;
+
+  filter: blur(100px);
+}
+
+/* ================= STARS ================= */
+
+.feedback-stars {
+  color: #d4af37;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+/* ================= QUOTE ================= */
+
+.feedback-quote {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #ccc;
+  margin-top: 25px;
+}
+
+/* BIG QUOTE SYMBOL */
+.feedback-card::after {
+  content: "”";
+  position: absolute;
+  top: 20px;
+  right: 40px;
+
+  font-size: 80px;
+  color: rgba(255,255,255,0.08);
+}
+
+/* ================= LINE ================= */
+
+.feedback-line {
+  margin: 30px 0;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+/* ================= USER ================= */
+
+.feedback-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.feedback-user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 2px solid rgba(212,175,55,0.4);
+}
+
+.feedback-user h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.feedback-user p {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+}
+.feedback-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.feedback-arrows {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+}
+/* ================= ARROWS ================= */
+
+.feedback-arrows {
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+
+  display: flex;
+  gap: 12px;
+}
+
+.arrow {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.arrow:hover {
+  border-color: #d4af37;
+  color: #d4af37;
+  transform: scale(1.1);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .feedback-card {
+    padding: 30px;
+    width: 95%;
+  }
+
+  .feedback-quote {
+    font-size: 15px;
+  }
+}

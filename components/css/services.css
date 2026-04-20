@@ -1,0 +1,158 @@
+/* ================= SECTION ================= */
+
+.services {
+  padding: 120px 8%;
+  background: radial-gradient(circle at top, #111, #000);
+  color: #fff;
+}
+
+.services h2 {
+  font-size: 2.8rem;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+/* ================= LAYOUT ================= */
+
+.services-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+/* ================= IMAGE ================= */
+
+.services-image {
+  flex: 1;
+  perspective: 1000px;
+}
+
+.services-image img {
+  width: 100%;
+  border-radius: 20px;
+
+  transform: rotateY(-10deg) rotateX(5deg);
+  transition: 0.4s ease;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 40px rgba(255,255,255,0.05);
+
+  filter: brightness(0.9);
+}
+
+.services-image:hover img {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.05);
+}
+
+/* ================= CONTENT ================= */
+
+.services-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ================= ITEM ================= */
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
+  padding: 14px 18px;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  transition: 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateX(10px);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.service-item span {
+  color: #d4af37; /* 🔥 GOLD */
+  font-size: 18px;
+}
+
+.service-item p {
+  color: #ddd;
+  font-size: 15px;
+}
+
+/* ================= BUTTON ================= */
+
+.premium-btn {
+  margin-top: 20px;
+  align-self: flex-start;
+
+  padding: 14px 30px;
+  border: none;
+  cursor: pointer;
+
+  color: #000; /* 🔥 BLACK TEXT */
+  font-weight: 600;
+  font-size: 14px;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #d4af37, #b8962e); /* 🔥 GOLD */
+
+  transition: all 0.3s ease;
+  position: relative;
+
+  z-index: 5;
+}
+
+/* 🔥 GOLD SHINE */
+.premium-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+.premium-btn:hover::before {
+  transform: translateX(100%);
+}
+
+/* 🔥 HOVER */
+.premium-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 10px 30px rgba(212,175,55,0.5),
+    0 0 40px rgba(212,175,55,0.3);
+}
+
+.premium-btn span {
+  transition: 0.3s;
+}
+
+.premium-btn:hover span {
+  letter-spacing: 1px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .services-container {
+    flex-direction: column;
+  }
+}

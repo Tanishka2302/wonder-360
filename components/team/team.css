@@ -1,0 +1,221 @@
+.team-section {
+  background: #000;
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.team-section h2 {
+  color: #d4af37;
+  font-size: 42px;
+  margin-bottom: 60px;
+}
+
+/* 🔥 CONTAINER */
+.team-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* 🤖 ROBO */
+.robo {
+  position: absolute;
+  top: -70px;
+  left: 0;
+  z-index: 10;
+}
+
+/* 🟡 MAIN BODY */
+.robo-core {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle at 30% 30%, #ffd700, #b8962e, #000);
+  
+  box-shadow:
+    0 0 25px rgba(212,175,55,0.8),
+    0 0 60px rgba(212,175,55,0.4),
+    inset 0 0 10px rgba(255,255,255,0.3);
+
+  position: relative;
+}
+
+/* ✨ OUTER RING */
+.robo-core::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 2px solid rgba(212,175,55,0.5);
+
+  animation: pulseRing 2s infinite;
+}
+
+/* ✨ INNER LIGHT */
+.robo-core::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff, transparent 70%);
+  opacity: 0.6;
+}
+
+/* 💫 PULSE ANIMATION */
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* 👤 CARD */
+.team-card {
+  width: 260px;
+  height: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  transition: 0.5s;
+}
+
+.team-card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.team-card .info {
+  padding: 15px;
+}
+
+.team-card h3 {
+  color: #fff;
+  font-size: 18px;
+}
+
+.team-card p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* ✨ ACTIVE */
+.team-card.active {
+  box-shadow: 0 0 40px rgba(212,175,55,0.5);
+}
+/* 🔥 OVERLAY */
+.team-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* 🔥 MODAL */
+.team-modal {
+  width: 85%;
+  max-width: 1100px;
+  height: 70vh;
+
+  display: flex;
+  gap: 40px;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: rgba(15,15,15,0.9);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(212,175,55,0.3);
+  box-shadow: 0 0 80px rgba(212,175,55,0.2);
+}
+
+/* LEFT */
+.modal-left {
+  flex: 1;
+}
+
+.modal-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT */
+.modal-right {
+  flex: 1;
+  padding: 40px;
+  color: #fff;
+}
+
+.modal-right h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.modal-right h4 {
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+.modal-right p {
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* SOCIAL */
+.modal-socials {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-socials span {
+  border: 1px solid #d4af37;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-socials span:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* AWARDS */
+.modal-right ul {
+  padding-left: 15px;
+}
+
+.modal-right li {
+  margin-bottom: 8px;
+  color: #aaa;
+}
+.awards-list {
+  margin-top: 10px;
+  animation: fadeUp 0.5s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

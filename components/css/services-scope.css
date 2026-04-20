@@ -1,0 +1,145 @@
+.services-scope {
+  height: 120vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.services-scope h2 {
+  color: #d4af37;
+  font-size: 42px;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+/* 🔥 BIG OVAL CONTAINER */
+.scope-outer {
+  width: 92vw;
+  height: 62vh;
+
+  border-radius: 50% / 38%;
+
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid rgba(212,175,55,0.25);
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(212,175,55,0.08),
+    transparent 70%
+  );
+
+  box-shadow:
+    0 0 120px rgba(212,175,55,0.15),
+    inset 0 0 80px rgba(212,175,55,0.05);
+}
+
+/* 🔥 INNER SAFE ZONE (VERY IMPORTANT) */
+.scope-outer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 0 120px; /* ⬅️ prevents side cutting */
+  pointer-events: none;
+}
+
+/* 🔥 SCROLL TRACK */
+.scope-track {
+  display: flex;
+  gap: 60px; /* ⬅️ more breathing */
+  width: max-content;
+
+  padding: 0 140px; /* ⬅️ BIG FIX */
+
+  animation: scrollX 30s linear infinite;
+}
+
+@keyframes scrollX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 🔥 BIGGER CARDS */
+.service-card {
+  min-width: 480px;
+  height: 300px;
+
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+
+  flex-shrink: 0;
+
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* 🔥 HOVER IMAGE ZOOM */
+.service-card:hover img {
+  transform: scale(1.12);
+}
+
+/* 🔥 OVERLAY FIXED */
+/* 🔥 OVERLAY */
+.overlay {
+  position: center;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center; /* ⬅️ CENTER IT SAFELY */
+
+  padding-bottom: 25px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85),
+    rgba(0,0,0,0.2)
+  );
+
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+/* 🔥 TEXT SAFE */
+.overlay span {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+
+  max-width: 70%; /* ⬅️ REDUCED */
+  text-align: center;
+
+  white-space: normal;
+  line-height: 1.3;
+}
+
+/* 🔥 SHOW ON HOVER */
+.service-card:hover .overlay {
+  opacity: 1;
+}
+
+/* 🔥 GOLD HOVER GLOW */
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 50px rgba(212,175,55,0.45),
+    0 0 100px rgba(212,175,55,0.2);
+}
