@@ -64,7 +64,7 @@ export default function FooterPremium() {
 
   <div className="footer-strip-left">
     <p>
-      Developed By <span>Prem Mhetre</span>
+      Developed By <span>Tanishka</span>
     </p>
     <p>
       © 2025 WONDER 360 TOURS
