@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import "./css/hero.css";
+type Props = {
+  title: string;
+};
 
-export default function HeroSection({ title }) {
+export default function HeroSection({ title }: Props) {
   return (
     <section className="hero">
 

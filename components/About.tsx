@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import "./css/about.css";
 import { useRouter } from "next/navigation";
 
-export default function About(): JSX.Element {
+export default function About() {
   const ref = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
