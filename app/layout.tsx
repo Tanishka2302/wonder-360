@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       y: 0, 
       opacity: 1, 
       rotateX: 0, 
-      transition: { type: "spring", stiffness: 120, damping: 12 } 
+      transition: {  stiffness: 120, damping: 12 } 
     }
   };
 
