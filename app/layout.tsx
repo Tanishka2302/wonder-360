@@ -30,16 +30,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     }
   };
 
-  const itemVars = {
-    hidden: { y: -50, opacity: 0, rotateX: -90 },
-    visible: { 
-      y: 0, 
-      opacity: 1, 
-      rotateX: 0, 
-      transition: {  stiffness: 120, damping: 12 } 
-    }
-  };
-
+ const itemVars = {
+  hidden: { y: 20, opacity: 0 },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+};
   return (
     <html lang="en">
       <body>
