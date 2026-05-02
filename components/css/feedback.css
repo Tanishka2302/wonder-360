@@ -164,3 +164,94 @@
     font-size: 15px;
   }
 }
+
+/* ================= 📱 TABLET (≤ 768px) ================= */
+@media (max-width: 768px) {
+
+  .feedback {
+    padding: 40px 15px;
+  }
+
+  .feedback-card {
+    width: 95%;
+    padding: 30px 25px;
+  }
+
+  /* quote text */
+  .feedback-quote {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* stars */
+  .feedback-stars {
+    font-size: 16px;
+  }
+
+  /* quote symbol smaller */
+  .feedback-card::after {
+    font-size: 50px;
+    top: 10px;
+    right: 20px;
+  }
+
+  /* glow reduced */
+  .feedback-card::before {
+    width: 250px;
+    height: 250px;
+    filter: blur(80px);
+  }
+
+  /* user section */
+  .feedback-user img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .feedback-user h4 {
+    font-size: 14px;
+  }
+
+  .feedback-user p {
+    font-size: 12px;
+  }
+
+  /* arrows reposition */
+  .feedback-arrows {
+    position: static;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 480px) {
+
+  .feedback-card {
+    padding: 25px 18px;
+    border-radius: 15px;
+  }
+
+  .feedback-quote {
+    font-size: 14px;
+  }
+
+  /* remove big quote for tight screens */
+  .feedback-card::after {
+    display: none;
+  }
+
+  /* simplify glow (performance) */
+  .feedback-card::before {
+    opacity: 0.5;
+    filter: blur(60px);
+  }
+
+  /* arrows smaller */
+  .arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+}
+.arrow:active {
+  transform: scale(0.95);
+}

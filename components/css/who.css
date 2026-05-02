@@ -94,7 +94,6 @@
   transform: translateY(20px);
 }
 
-/* IMAGE */
 .who-image img {
   width: 100%;
   height: 100%;
@@ -109,11 +108,10 @@
 
   filter: brightness(0.85) contrast(1.05);
 
-  /* subtle motion */
   animation: float 6s ease-in-out infinite;
 }
 
-/* FLOAT MOTION */
+/* FLOAT */
 @keyframes float {
   0%   { transform: translateY(0px) scale(1); }
   50%  { transform: translateY(-10px) scale(1.02); }
@@ -156,11 +154,23 @@
     0 0 60px rgba(212,175,55,0.25);
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= 📱 TABLET ================= */
 
 @media (max-width: 900px) {
+
+  .who {
+    padding: 80px 30px;
+    text-align: center;
+  }
+
+  .who h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
   .who-container {
     flex-direction: column;
+    gap: 40px;
   }
 
   .who-text,
@@ -170,5 +180,70 @@
 
   .who-image {
     transform: none;
+  }
+
+  /* reduce glow */
+  .who::before {
+    width: 350px;
+    height: 350px;
+    filter: blur(90px);
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .who-btn {
+    align-self: center;
+  }
+
+  /* remove heavy animation */
+  .who-image img {
+    animation: none;
+  }
+
+  .who-image::after {
+    display: none;
+  }
+}
+
+/* ================= 📱 MOBILE ================= */
+
+@media (max-width: 480px) {
+
+  .who {
+    padding: 60px 15px;
+  }
+
+  /* FIX TITLE VISIBILITY */
+  .who h2 {
+    font-size: 1.8rem;
+
+    color: #d4af37;
+    -webkit-text-stroke: 0;
+    text-shadow: 0 0 15px rgba(212,175,55,0.3);
+  }
+
+  .who-text p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .who-image img {
+    border-radius: 16px;
+  }
+
+  .who-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* remove hover */
+  .who-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* tap effect */
+  .who-btn:active {
+    transform: scale(0.97);
   }
 }

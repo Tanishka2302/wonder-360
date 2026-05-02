@@ -181,3 +181,97 @@
     font-size: 12px;
   }
 }
+
+/* 📱 TABLET (≤ 900px) */
+@media (max-width: 900px) {
+
+  .about {
+    padding: 80px 20px;
+  }
+
+  /* TOP STACK */
+  .about-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+
+  .about h1 {
+    font-size: 32px;
+  }
+
+  /* GRID → STACK */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* IMAGE */
+  .about-img {
+    width: 100%;
+    height: 300px;
+  }
+
+  /* BUTTON */
+  .explore {
+    width: 80px;
+    height: 80px;
+    font-size: 11px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  /* TEXT */
+  .about-text h3 {
+    font-size: 20px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .about {
+    padding: 60px 15px;
+  }
+
+  .about h1 {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  .mini {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .about-img {
+    height: 240px;
+  }
+
+  /* 🔥 Make button less intrusive */
+  .explore {
+    width: 70px;
+    height: 70px;
+    font-size: 10px;
+  }
+
+  /* OPTIONAL: move button below image instead */
+  /*
+  .explore {
+    position: static;
+    margin-top: 15px;
+  }
+  */
+
+  .cta {
+    width: 100%;
+    text-align: center;
+  }
+}
+.about-img {
+  will-change: transform;
+}

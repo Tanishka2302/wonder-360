@@ -42,6 +42,7 @@ export default function TeamSection() {
       setActive((prev) => (prev + 1) % team.length);
     }, 2500);
 
+    
     return () => clearInterval(interval);
   }, []);
 

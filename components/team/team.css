@@ -219,3 +219,93 @@
     transform: translateY(0);
   }
 }
+
+/* 📱 TABLET + MOBILE (≤ 768px) */
+@media (max-width: 768px) {
+
+  .team-section {
+    padding: 80px 20px;
+  }
+
+  .team-section h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  /* 👉 Make cards scrollable (best UX) */
+  .team-container {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 16px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .team-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .team-card {
+    flex: 0 0 200px;
+    height: 300px;
+    scroll-snap-align: center;
+  }
+
+  /* 👉 Robo adjust */
+  .robo {
+    top: -50px;
+    left: 10px;
+    transform: scale(0.8);
+  }
+
+  /* 👉 Modal becomes vertical */
+  .team-modal {
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-left {
+    height: 250px;
+  }
+
+  .modal-right {
+    padding: 20px;
+  }
+
+  .modal-right h2 {
+    font-size: 24px;
+  }
+
+  .modal-right p {
+    font-size: 14px;
+  }
+}
+/* 📱 SMALL PHONES (≤ 480px) */
+@media (max-width: 480px) {
+
+  .team-card {
+    flex: 0 0 160px;
+    height: 260px;
+  }
+
+  .team-card h3 {
+    font-size: 14px;
+  }
+
+  .team-card p {
+    font-size: 12px;
+  }
+
+  .modal-left {
+    height: 200px;
+  }
+
+  .modal-right h2 {
+    font-size: 20px;
+  }
+}
+.team-container {
+  scroll-behavior: smooth;
+}

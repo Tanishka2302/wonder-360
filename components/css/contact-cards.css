@@ -102,3 +102,70 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* 📱 TABLET (≤ 1000px) */
+@media (max-width: 1000px) {
+
+  .contact-cards {
+    padding: 80px 20px;
+  }
+
+  .contact-cards h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .cards-grid {
+    gap: 20px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+}
+/* 📱 SMALL DEVICES */
+@media (max-width: 600px) {
+
+  .contact-cards {
+    padding: 60px 15px;
+  }
+
+  .contact-cards h2 {
+    font-size: 1.6rem;
+    -webkit-text-stroke: 0.5px rgba(212,175,55,0.6);
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .icon {
+    font-size: 22px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 13px;
+  }
+
+  .card span {
+    font-size: 12px;
+  }
+
+  /* ❌ Remove hover dependency */
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .card-glow {
+    display: none;
+  }
+}
+.card:active {
+  transform: scale(0.97);
+}

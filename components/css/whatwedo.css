@@ -157,3 +157,104 @@
     max-width: 100%;
   }
 }
+/* ================= 📱 TABLET (≤ 900px) ================= */
+@media (max-width: 900px) {
+
+  .what {
+    flex-direction: column;
+    padding: 80px 30px;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .what-image,
+  .what-content {
+    max-width: 100%;
+  }
+
+  /* IMAGE */
+  .what-image img {
+    animation: none; /* ❌ remove heavy float */
+    transform: none;
+  }
+
+  /* remove sweep */
+  .what-image::after {
+    display: none;
+  }
+
+  /* glow smaller */
+  .what::before {
+    width: 350px;
+    height: 350px;
+    filter: blur(100px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* TEXT */
+  .what h2 {
+    font-size: 2.2rem;
+  }
+
+  .what-desc {
+    font-size: 14px;
+  }
+
+  /* CENTER LIST */
+  .what-item {
+    justify-content: center;
+    text-align: left;
+  }
+
+  /* BUTTON CENTER */
+  .what-btn {
+    align-self: center;
+  }
+}
+/* ================= 📱 MOBILE ================= */
+@media (max-width: 480px) {
+
+  .what {
+    padding: 60px 15px;
+    gap: 30px;
+  }
+
+  .what h2 {
+    font-size: 1.6rem;
+    -webkit-text-stroke: 0.5px rgba(212,175,55,0.5);
+  }
+
+  /* IMAGE */
+  .what-image img {
+    border-radius: 16px;
+  }
+
+  /* TEXT */
+  .what-item {
+    gap: 10px;
+  }
+
+  .what-item span {
+    font-size: 16px;
+  }
+
+  .what-item p {
+    font-size: 13px;
+  }
+
+  /* BUTTON FULL WIDTH */
+  .what-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* ❌ remove hover */
+  .what-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+.what-btn:active {
+  transform: scale(0.97);
+}

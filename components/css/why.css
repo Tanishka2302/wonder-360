@@ -85,18 +85,17 @@
 
   filter: brightness(0.85) contrast(1.05);
 
-  /* 🔥 FLOATING 3D MOTION */
   animation: float3D 6s ease-in-out infinite;
 }
 
 /* FLOAT ANIMATION */
 @keyframes float3D {
-  0%   { transform: translateY(0px) translateZ(0px); }
-  50%  { transform: translateY(-14px) translateZ(30px); }
-  100% { transform: translateY(0px) translateZ(0px); }
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0px); }
 }
 
-/* HOVER BOOST */
+/* HOVER */
 .why-image:hover img {
   transform: scale(1.06);
   filter: brightness(1);
@@ -137,11 +136,6 @@
   z-index: 2;
 }
 
-.stat {
-  position: relative;
-}
-
-/* NUMBER */
 .stat h3 {
   font-size: 52px;
   font-weight: 700;
@@ -152,14 +146,12 @@
     0 0 25px rgba(212,175,55,0.2);
 }
 
-/* TEXT */
 .stat p {
   color: #aaa;
   font-size: 14px;
   margin-top: 8px;
 }
 
-/* LINE UNDER */
 .stat::after {
   content: "";
   display: block;
@@ -176,19 +168,97 @@
   opacity: 0.4;
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= 📱 TABLET ================= */
 
 @media (max-width: 900px) {
+
   .why {
     grid-template-columns: 1fr;
     gap: 40px;
+    padding: 80px 30px;
+    text-align: center;
   }
 
   .why h2 {
     font-size: 2.2rem;
   }
 
+  .why-content {
+    order: 1;
+  }
+
+  .why-image {
+    order: 2;
+  }
+
+  .why-stats {
+    order: 3;
+    align-items: center;
+  }
+
   .stat h3 {
     font-size: 40px;
+  }
+
+  /* reduce glow */
+  .why::before {
+    width: 350px;
+    height: 350px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  /* remove heavy animation */
+  .why-image img {
+    animation: none;
+  }
+
+  .why-image::after {
+    display: none;
+  }
+}
+
+/* ================= 📱 MOBILE ================= */
+
+@media (max-width: 480px) {
+
+  .why {
+    padding: 60px 15px;
+  }
+
+  /* FIX TITLE */
+  .why h2 {
+    font-size: 1.8rem;
+
+    color: #d4af37;
+    -webkit-text-stroke: 0;
+    text-shadow: 0 0 15px rgba(212,175,55,0.3);
+  }
+
+  .why-item {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .why-item p {
+    font-size: 13px;
+  }
+
+  .stat h3 {
+    font-size: 32px;
+  }
+
+  .stat p {
+    font-size: 12px;
+  }
+
+  /* remove hover */
+  .why-image:hover img {
+    transform: none;
+  }
+
+  /* touch feedback */
+  .stat:active {
+    transform: scale(0.97);
   }
 }

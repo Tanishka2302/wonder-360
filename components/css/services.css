@@ -156,3 +156,102 @@
     flex-direction: column;
   }
 }
+/* ================= 📱 TABLET (≤ 900px) ================= */
+@media (max-width: 900px) {
+
+  .services {
+    padding: 80px 30px;
+  }
+
+  .services h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .services-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* IMAGE FIX */
+  .services-image img {
+    transform: none; /* ❌ remove tilt */
+    border-radius: 16px;
+  }
+
+  .services-image:hover img {
+    transform: scale(1.03); /* lighter effect */
+  }
+
+  /* CONTENT */
+  .services-content {
+    width: 100%;
+    gap: 15px;
+  }
+
+  /* ITEMS */
+  .service-item {
+    padding: 12px 14px;
+  }
+
+  .service-item p {
+    font-size: 14px;
+  }
+
+  /* BUTTON CENTER */
+  .premium-btn {
+    align-self: center;
+  }
+}
+/* ================= 📱 MOBILE ================= */
+@media (max-width: 480px) {
+
+  .services {
+    padding: 60px 15px;
+  }
+
+  .services h2 {
+    font-size: 1.6rem;
+  }
+
+  /* IMAGE */
+  .services-image img {
+    border-radius: 14px;
+  }
+
+  /* ITEMS */
+  .service-item {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .service-item span {
+    font-size: 16px;
+  }
+
+  .service-item p {
+    font-size: 13px;
+  }
+
+  /* BUTTON */
+  .premium-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* ❌ remove heavy hover */
+  .service-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .premium-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.service-item:active {
+  transform: scale(0.97);
+}

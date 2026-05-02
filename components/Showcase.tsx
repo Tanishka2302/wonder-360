@@ -1,3 +1,5 @@
+import "./css/showcase.css";
+
 export default function Showcase() {
   return (
     <section className="showcase">

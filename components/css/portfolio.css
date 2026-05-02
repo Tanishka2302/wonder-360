@@ -129,3 +129,83 @@
 .p-card:hover .p-glow {
   opacity: 1;
 }
+
+/* ================= 📱 TABLET (≤ 900px) ================= */
+@media (max-width: 900px) {
+
+  .portfolio {
+    padding: 80px 20px;
+  }
+
+  .portfolio h2 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    margin-bottom: 40px;
+  }
+
+  .portfolio .mini {
+    font-size: 16px;
+  }
+
+  /* 👉 cards wrap instead of overflow */
+  .portfolio-grid {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .p-card {
+    width: 45%;
+    height: 200px;
+  }
+}
+
+/* ================= 📱 SMALL DEVICES ================= */
+@media (max-width: 480px) {
+
+  .portfolio {
+    padding: 60px 15px;
+  }
+
+  .portfolio h2 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+
+  .portfolio .mini {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  /* 👉 single column */
+  .portfolio-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .p-card {
+    width: 100%;
+    max-width: 320px;
+    height: 190px;
+  }
+
+  /* ❌ remove hover dependency */
+  .p-overlay {
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(212,175,55,0.8),
+      transparent
+    );
+  }
+
+  .p-card:hover img {
+    transform: none;
+  }
+
+  .p-glow {
+    display: none;
+  }
+}
+
+.p-card:active {
+  transform: scale(0.97);
+}
