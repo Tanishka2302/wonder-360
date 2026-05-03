@@ -1,22 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Hero360() {
   const [loaded, setLoaded] = useState(false);
+
+  // fallback in case mobile doesn't trigger onLoad
+  useEffect(() => {
+    const timer = setTimeout(() => setLoaded(true), 3500);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
       style={{
         position: "relative",
         width: "100%",
-        height: "calc(100vh - 70px)",
+        height: "calc(100vh - 70px)", // desktop default
         marginTop: "70px",
         overflow: "hidden",
       }}
     >
-      {/* LOADER (shown until iframe loads) */}
+      {/* MOBILE HEIGHT FIX */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .hero360-container {
+              height: 100dvh !important;
+            }
+          }
+        `}
+      </style>
+
+      {/* LOADER */}
       {!loaded && (
         <div
           style={{
@@ -34,18 +51,21 @@ export default function Hero360() {
         </div>
       )}
 
+      {/* IFRAME */}
       <iframe
-        src="https://kuula.co/share/5H7Z7?logo=0&info=0&fs=1&vr=0&sd=0&thumbs=0&autorotate=1"
+        src="https://kuula.co/share/5H7Z7?logo=0&info=0&fs=1&vr=1&sd=0&thumbs=0&autorotate=1"
         width="100%"
         height="100%"
+        className="hero360-container"
         style={{
           border: "none",
           opacity: loaded ? 1 : 0,
           transition: "opacity 0.8s ease",
         }}
         onLoad={() => setLoaded(true)}
+        allow="xr-spatial-tracking; gyroscope; accelerometer; fullscreen"
         allowFullScreen
-      ></iframe>
+      />
 
       {/* GRADIENT */}
       <div
@@ -60,7 +80,7 @@ export default function Hero360() {
         }}
       />
 
-      {/* TEXT (only show after load) */}
+      {/* TEXT */}
       {loaded && (
         <motion.div
           initial={{ x: 100, opacity: 0 }}
