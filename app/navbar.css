@@ -195,57 +195,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10005; /* Highest so it covers everything */
+  z-index: 10005; 
 }
 
 .orb-menu {
+  position: relative; /* Anchor point for the diamond */
   width: 320px;
   height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #1a1a1a, #000);
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  padding: 20px;
-  box-shadow: 0 0 60px rgba(212,175,55,0.2), inset 0 0 40px rgba(212,175,55,0.1);
-  border: 1px solid rgba(212,175,55,0.1);
 }
 
-.orb-item {
-  width: 100px;
-  height: 100px;
-  border-radius: 20px;
+/* 🔥 THE FIX: Target the anchor tags directly */
+.orb-item-link {
+  position: absolute !important; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(212,175,55,0.1);
-  cursor: pointer;
-  transition: 0.3s ease;
+  text-decoration: none !important;
+  color: #fff !important;
+  width: 100px;
+  height: 100px;
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.orb-item span {
-  font-size: 28px;
-  margin-bottom: 5px;
+/* Force each link to its corner of the diamond */
+.orb-item-link:nth-child(1) { transform: translate(0, -110px) !important; } 
+.orb-item-link:nth-child(2) { transform: translate(110px, 0) !important; }  
+.orb-item-link:nth-child(3) { transform: translate(0, 110px) !important; }  
+.orb-item-link:nth-child(4) { transform: translate(-110px, 0) !important; } 
+
+.orb-icon-span {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #d4af37;
 }
 
-.orb-item p {
+.orb-label-text {
   font-size: 11px;
-  color: #aaa;
-  margin: 0;
+  color: #fff;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
-
-.orb-item:hover {
-  transform: translateY(-5px);
-  background: rgba(212,175,55,0.15);
-  border-color: #d4af37;
-}
-
 /* ================= HAMBURGER ICON ================= */
 .menu-toggle {
   display: none;
@@ -403,4 +404,92 @@
   .mobile-orb {
     display: flex !important; 
   }
+}
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10010; 
+}
+
+.contact-modal {
+  background: rgba(15, 15, 15, 0.98);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 40px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.15);
+  text-align: center;
+}
+
+.contact-modal h3 {
+  color: #d4af37;
+  font-size: 26px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.contact-modal p {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.contact-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-modal input, 
+.contact-modal textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 14px;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.contact-modal input:focus, 
+.contact-modal textarea:focus {
+  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.submit-btn {
+  background: radial-gradient(circle, #d4af37, #8f6f1a);
+  color: #000;
+  font-weight: 700;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #d4af37;
+  font-size: 22px;
+  cursor: pointer;
 }

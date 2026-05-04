@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import "./css/contact.css";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -13,6 +14,7 @@ export default function Contact() {
   });
 
   const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,37 +22,60 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); // Extra safety measure
+    
+    console.log("1. BUTTON CLICKED (React Controlled)!"); 
+    console.log("2. Current Form Data:", form);
 
-    // 🔥 SIMPLE VALIDATION
     if (!form.name || !form.email || !form.subject || !form.message) {
+      console.warn("3. Validation Failed: A field is empty.");
       alert("Please fill all fields");
       return;
     }
 
-    // ✅ SHOW SUCCESS POPUP
-    setShowPopup(true);
+    console.log("3. Validation Passed. Sending to EmailJS...");
+    setLoading(true);
 
-    // reset form
-    setForm({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+    emailjs
+      .send(
+        "service_gag77qr",        // ✅ service ID
+        "template_4xaes7l",       // ✅ template ID
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        "IujdyPXYqZzc_Y00Q"       // ✅ public key
+      )
+      .then((res) => {
+        console.log("4. SUCCESS ✅ Email sent!", res.status, res.text);
 
-    // auto hide popup
-    setTimeout(() => setShowPopup(false), 3000);
+        setShowPopup(true);
+        setLoading(false);
+
+        setForm({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+
+        setTimeout(() => setShowPopup(false), 3000);
+      })
+      .catch((err) => {
+        console.error("4. ERROR ❌ Email failed to send:", err);
+        setLoading(false);
+        alert("Failed to send message. Check console for details.");
+      });
   };
 
   return (
     <section className="contact">
-
       <div className="contact-bg" />
 
       <div className="contact-container">
-
         <motion.h2
           initial={{ opacity: 0, letterSpacing: "15px" }}
           whileInView={{ opacity: 1, letterSpacing: "2px" }}
@@ -63,8 +88,8 @@ export default function Contact() {
           Contact us for a great Wonder 360 Tours session & beautiful captured moments
         </p>
 
-        <form className="contact-form" onSubmit={handleSubmit}>
-
+        {/* 🔥 FIX 1: Removed 'onSubmit' completely so the form can't refresh the page */}
+        <div className="contact-form">
           <div className="row">
             <input
               type="text"
@@ -73,6 +98,7 @@ export default function Contact() {
               value={form.name}
               onChange={handleChange}
             />
+
             <input
               type="email"
               name="email"
@@ -98,18 +124,19 @@ export default function Contact() {
             onChange={handleChange}
           />
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          {/* 🔥 FIX 2: Changed to type="button" and attached onClick directly here */}
+          <button 
+            type="button" 
             className="contact-btn"
+            disabled={loading}
+            onClick={handleSubmit}
           >
-            Submit Now →
-          </motion.button>
-
-        </form>
+            {loading ? "Sending..." : "Submit Now →"}
+          </button>
+        </div>
       </div>
 
-      {/* 🔥 SUCCESS POPUP */}
+      {/* SUCCESS POPUP */}
       <AnimatePresence>
         {showPopup && (
           <motion.div
@@ -123,7 +150,6 @@ export default function Contact() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </section>
   );
 }

@@ -5,24 +5,43 @@ import { useState, useEffect } from "react";
 
 export default function Hero360() {
   const [loaded, setLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // fallback in case mobile doesn't trigger onLoad
   useEffect(() => {
+    // 1. Check if we are on mobile to toggle autorotate
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Event listener for screen resizing
+    window.addEventListener("resize", handleResize);
+
+    // Fallback timer for loader
     const timer = setTimeout(() => setLoaded(true), 3500);
-    return () => clearTimeout(timer);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
+
+  // 2. Dynamic Kuula URL based on device type
+  const kuulaUrl = `https://kuula.co/share/5H7Z7?logo=0&info=0&fs=1&vr=1&sd=0&thumbs=0&autorotate=${isMobile ? "0" : "1"}`;
 
   return (
     <div
       style={{
         position: "relative",
         width: "100%",
-        height: "calc(100vh - 70px)", // desktop default
+        height: "calc(100vh - 70px)",
         marginTop: "70px",
         overflow: "hidden",
+        background: "#000",
       }}
     >
-      {/* MOBILE HEIGHT FIX */}
       <style>
         {`
           @media (max-width: 768px) {
@@ -44,16 +63,33 @@ export default function Hero360() {
             alignItems: "center",
             justifyContent: "center",
             color: "#fff",
-            zIndex: 2,
+            zIndex: 10,
           }}
         >
           Loading 360° Experience...
         </div>
       )}
 
+      {/* 🔥 SOLID BLACK TOP-BAR MASK (Hides Logo + Info Bar) */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "clamp(50px, 8vh, 65px)",
+          // Sharp solid black to ensure the UI is completely hidden
+          background: "linear-gradient(to bottom, #000 0%, #000 85%, transparent 100%)",
+          zIndex: 5,
+          pointerEvents: "none", 
+          opacity: loaded ? 1 : 0,
+          transition: "opacity 0.8s ease",
+        }}
+      />
+
       {/* IFRAME */}
       <iframe
-        src="https://kuula.co/share/5H7Z7?logo=0&info=0&fs=1&vr=1&sd=0&thumbs=0&autorotate=1"
+        src={kuulaUrl}
         width="100%"
         height="100%"
         className="hero360-container"
@@ -67,7 +103,7 @@ export default function Hero360() {
         allowFullScreen
       />
 
-      {/* GRADIENT */}
+      {/* RIGHT SIDE GRADIENT */}
       <div
         style={{
           position: "absolute",
@@ -75,12 +111,12 @@ export default function Hero360() {
           right: 0,
           width: "40%",
           height: "100%",
-          background:
-            "linear-gradient(to left, rgba(0,0,0,0.5), transparent)",
+          background: "linear-gradient(to left, rgba(0,0,0,0.6), transparent)",
+          pointerEvents: "none",
         }}
       />
 
-      {/* TEXT */}
+      {/* TEXT CONTENT */}
       {loaded && (
         <motion.div
           initial={{ x: 100, opacity: 0 }}
@@ -92,6 +128,7 @@ export default function Hero360() {
             right: "6%",
             transform: "translateY(-50%)",
             color: "#fff",
+            zIndex: 6,
           }}
         >
           <h1
@@ -100,7 +137,7 @@ export default function Hero360() {
               fontWeight: 700,
               margin: 0,
               whiteSpace: "nowrap",
-              textShadow: "0 4px 20px rgba(0,0,0,0.6)",
+              textShadow: "0 4px 20px rgba(0,0,0,0.8)",
               letterSpacing: "-0.5px",
             }}
           >
@@ -112,7 +149,7 @@ export default function Hero360() {
               marginTop: "10px",
               fontSize: "1.1rem",
               opacity: 0.9,
-              textShadow: "0 2px 10px rgba(0,0,0,0.5)",
+              textShadow: "0 2px 10px rgba(0,0,0,0.7)",
             }}
           >
             Transforming Spaces into Stories
