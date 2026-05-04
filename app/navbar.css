@@ -4,92 +4,63 @@
 }
 
 /* ================= NAVBAR CORE ================= */
-.navbar{
-display:grid;
-grid-template-columns:auto 1fr auto;
-align-items:center;
-
-height:120px;
-padding:0 6%;
-
-background:#000;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:1000;
-
-border-bottom:1px solid rgba(212,175,55,.18);
-
-box-shadow:
-0 10px 40px rgba(0,0,0,.8);
-}
-/* ================= LOGO================= */
-/* BRAND WRAP */
-.logo-wrap{
-  display:flex;
-  align-items:flex-start;
+.navbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 120px;
+  padding: 0 6%;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000; /* 🔥 Bumped up so navbar stays above the mobile menu */
+  border-bottom: 1px solid rgba(212,175,55,.18);
+  box-shadow: 0 10px 40px rgba(0,0,0,.8);
 }
 
-/* stack logo + tagline */
-.brand-link{
-  display:flex;
-  flex-direction:column;
-  text-decoration:none;
-  gap:4px;               /* premium spacing */
+/* ================= LOGO ================= */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  min-width: 340px;
 }
 
-/* main logo */
-/* BRAND BLOCK */
-.logo-wrap{
-display:flex;
-align-items:center;
-min-width:340px;
+.brand-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  gap: 4px; 
 }
 
-/* stacked lockup */
-.brand-link{
-display:flex;
-flex-direction:column;
-justify-content:center;
-text-decoration:none;
+.logo-img {
+  height: 96px; 
+  width: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: -14px;
+  filter: drop-shadow(0 0 16px rgba(212,175,55,.35));
+  transition: .3s ease;
 }
 
-/* BIG BOLD LOGO */
-.logo-img{
-height:96px;      /* was tiny, now hero-brand size */
-width:auto;
-display:block;
-object-fit:contain;
-
-margin-bottom:-14px;
-
-filter:
-drop-shadow(0 0 16px rgba(212,175,55,.35));
+.tagline-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d4af37;
+  margin-left: 26px;   
+  margin-top: -10px;
+  white-space: nowrap;
+  opacity: .95;
 }
 
-/* tagline tucked under */
-.tagline-text{
-font-size:13px;
-font-weight:700;
-letter-spacing:3px;
-text-transform:uppercase;
-
-color:#d4af37;
-
-margin-left:26px;   
-margin-top:-10px;
-
-white-space:nowrap;
-
-opacity:.95;
+.logo-wrap:hover .logo-img {
+  transform: scale(1.03);
 }
 
-/* luxury hover */
-.logo-wrap:hover .logo-img{
-transform:scale(1.03);
-transition:.3s ease;
-}
 /* ================= NAV LINKS ================= */
 .nav-links {
   display: flex;
@@ -130,13 +101,13 @@ transition:.3s ease;
   width: 100%;
 }
 
-/* ================= RIGHT ACTIONS (The Fix) ================= */
+/* ================= RIGHT ACTIONS ================= */
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 20px;
   justify-self: end;
-  min-width: fit-content; /* 🔥 Prevents items from disappearing */
+  min-width: fit-content;
 }
 
 /* SEARCH BOX */
@@ -169,7 +140,7 @@ transition:.3s ease;
   background: none;
   border: none;
   color: #fff;
-  font-size: 22px; /* Bigger icon */
+  font-size: 22px; 
   cursor: pointer;
   padding: 0;
   display: flex;
@@ -181,22 +152,18 @@ transition:.3s ease;
   color: #d4af37;
 }
 
-/* GOLD ORB */
+/* ================= GOLD ORB ================= */
 .nav-orb {
   width: 38px;
   height: 38px;
   min-width: 38px;
   border-radius: 50%;
   cursor: pointer;
-  
-  /* Reset button styles */
   border: none;
   padding: 0;
   outline: none;
-  
   background: radial-gradient(circle, #d4af37, #8f6f1a);
   box-shadow: 0 0 15px rgba(212,175,55,0.4);
-  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,16 +180,22 @@ transition:.3s ease;
   box-shadow: 0 0 25px rgba(212,175,55,0.7);
 }
 
+/* 🔥 Hide mobile orb by default */
+.mobile-orb {
+  display: none;
+  margin: 0 auto 30px auto; /* Centers it inside the mobile menu */
+}
+
 /* ================= ORB HUB MENU OVERLAY ================= */
 .orb-menu-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85); /* Darker for better focus */
+  background: rgba(0,0,0,0.85);
   backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10000;
+  z-index: 10005; /* Highest so it covers everything */
 }
 
 .orb-menu {
@@ -273,17 +246,7 @@ transition:.3s ease;
   border-color: #d4af37;
 }
 
-/* ================= MOBILE RESPONSIVENESS ================= */
-@media (max-width: 900px) {
-  .nav-links {
-    display: none;
-  }
-  .navbar {
-    grid-template-columns: auto 1fr; /* Adjust grid for mobile */
-  }
-}
-/* ================= 🍔 HAMBURGER ================= */
-
+/* ================= HAMBURGER ICON ================= */
 .menu-toggle {
   display: none;
   width: 26px;
@@ -291,6 +254,7 @@ transition:.3s ease;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  z-index: 10001; /* Keeps it clickable when menu is open */
 }
 
 .menu-toggle span {
@@ -298,250 +262,136 @@ transition:.3s ease;
   width: 100%;
   background: #fff;
   border-radius: 2px;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  transform-origin: left center;
 }
 
-/* ================= 📱 TABLET (≤ 900px) ================= */
-
-@media (max-width: 900px) {
-
-  /* hide desktop nav */
-  .nav-links {
-    display: none;
-  }
-
-  /* show hamburger */
-  .menu-toggle {
-    display: flex;
-  }
-
-  /* adjust navbar grid */
-  .navbar {
-    grid-template-columns: auto 1fr auto;
-    height: 100px;
-  }
-
-  /* logo smaller */
-  .logo-img {
-    height: 70px;
-  }
-
-  .tagline-text {
-    font-size: 11px;
-    letter-spacing: 2px;
-    margin-left: 20px;
-  }
-
-  /* reduce search size */
-  .search-box.open input {
-    width: 140px;
-  }
-
-  /* keep orb visible */
-  .nav-orb {
-    width: 34px;
-    height: 34px;
-  }
+/* 🔥 Turn Hamburger into an 'X' when open */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg);
 }
 
-/* ================= 📱 MOBILE (≤ 480px) ================= */
-
-@media (max-width: 480px) {
-
-  .navbar {
-    padding: 0 4%;
-    height: 90px;
-  }
-
-  /* logo compact */
-  .logo-img {
-    height: 58px;
-  }
-
-  .tagline-text {
-    font-size: 9px;
-    letter-spacing: 1px;
-    margin-left: 14px;
-    margin-top: -6px;
-  }
-
-  /* search tighter */
-  .search-box.open input {
-    width: 110px;
-    padding: 6px 10px;
-  }
-
-  /* orb smaller */
-  .nav-orb {
-    width: 30px;
-    height: 30px;
-  }
-
-  /* spacing fix */
-  .nav-actions {
-    gap: 12px;
-  }
-
-  /* hamburger visible */
-  .menu-toggle {
-    display: flex;
-  }
+/* ================= 🔥 MOBILE MENU DRAWER (NEW) ================= */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  z-index: 9998; /* Below navbar, above page */
 }
-
-/* ================= 📱 MOBILE MENU ================= */
 
 .mobile-menu {
   position: fixed;
   top: 0;
   right: 0;
-  width: 75%;
   height: 100vh;
-
-  background: #000;
-
-  padding: 100px 30px;
+  width: 260px;
+  background: #0a0a0a;
+  z-index: 9999; /* Below navbar */
   display: flex;
   flex-direction: column;
-  gap: 25px;
-
-  z-index: 9999;
+  padding: 80px 30px 30px; /* Top padding clears the navbar */
+  border-left: 1px solid rgba(212,175,55,.18);
+  box-shadow: -10px 0 40px rgba(0,0,0,0.8);
 }
 
 .mobile-menu a {
-  color: #fff;
-  font-size: 20px;
+  color: #ccc;
   text-decoration: none;
+  font-size: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
 }
 
+.mobile-menu a:hover,
 .mobile-menu a.active {
   color: #d4af37;
 }
 
-/* overlay */
-.mobile-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 9998;
-}
-/* ================= 🔥 ORB RESPONSIVE FIX ================= */
-
-/* 📱 TABLET FIX */
+/* ================= 📱 TABLET (≤ 900px) ================= */
 @media (max-width: 900px) {
-
-  .orb-menu {
-    width: 280px;
-    height: 280px;
-
-    gap: 12px;
-    padding: 18px;
+  .nav-links {
+    display: none;
   }
-
-  .orb-item {
-    width: 90px;
-    height: 90px;
-  }
-
-  .orb-item span {
-    font-size: 24px;
-  }
-
-  .orb-item p {
-    font-size: 10px;
-  }
-}
-
-/* 📱 MOBILE FIX */
-@media (max-width: 480px) {
-
-  /* 🔥 FIX CIRCLE BREAK */
-  .orb-menu {
-    width: 260px;
-    height: 260px;
-
-    padding: 15px;
-
-    /* 🔥 KEY CHANGE: use grid instead of flex wrap */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  /* 🔥 FIX ITEMS */
-  .orb-item {
-    width: 100%;
-    height: 100%;
-
-    border-radius: 14px;
-  }
-
-  .orb-item span {
-    font-size: 20px;
-  }
-
-  .orb-item p {
-    font-size: 10px;
-  }
-
-  /* 🔥 CENTER FIX (important) */
-  .orb-menu-overlay {
-    align-items: center;
-    justify-content: center;
-  }
-}
-/* ================= 🔥 MOBILE NAVBAR FIX ================= */
-/* ================= 🔥 FINAL MOBILE NAV FIX ================= */
-
-@media (max-width: 480px) {
-
-  /* remove extra horizontal space */
-  .navbar {
-    padding: 0 8px;
-    grid-template-columns: 1fr auto;
-    overflow: hidden; /* 🔥 prevents spill */
-  }
-
-  /* force right side inside */
-  .nav-actions {
-    position: relative;
-    right: 0;
-    gap: 6px;
-  }
-
-  /* 🔥 CRITICAL: prevent overflow of children */
-  .nav-actions > * {
-    flex-shrink: 0;
-  }
-
-  /* shrink everything slightly */
-  .logo-wrap {
-    max-width: 55%;
-    min-width: unset;
-  }
-
-  .logo-img {
-    height: 46px;
-  }
-
-  .tagline-text {
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-
-  /* 🔥 force hamburger visible */
   .menu-toggle {
     display: flex;
-    margin-left: 4px;
   }
-
-  /* orb tighter */
-  .nav-orb {
-    width: 24px;
-    height: 24px;
+  .navbar {
+    grid-template-columns: auto 1fr auto;
+    height: 100px;
   }
-
-  /* search tighter */
+  .logo-img {
+    height: 70px;
+  }
+  .tagline-text {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-left: 20px;
+  }
   .search-box.open input {
-    width: 70px;
+    width: 140px;
+  }
+}
+
+/* ================= ✅ FINAL CLEAN MOBILE (≤ 480px) ================= */
+@media (max-width: 480px) {
+  .navbar {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; 
+    padding: 0 20px 0 15px; 
+    width: 100%;
+    max-width: 100vw; 
+  }
+  
+  .logo-wrap {
+    min-width: 0; 
+    max-width: 65%;
+  }
+  
+  .logo-img {
+    height: 34px; 
+  }
+  
+  .tagline-text {
+    display: none;
+  }
+
+  .nav-actions {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 15px; 
+    flex-shrink: 0; 
+  }
+
+  .search-box, 
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-box.open input {
+    width: 90px;
+  }
+  
+  .menu-toggle {
+    flex-shrink: 0;
+  }
+  
+  /* 🔥 Orb Swapping Logic */
+  .desktop-orb {
+    display: none !important; 
+  }
+  .mobile-orb {
+    display: flex !important; /* Shows up inside the mobile menu drawer */
   }
 }

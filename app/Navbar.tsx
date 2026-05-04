@@ -66,9 +66,9 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* 🔥 ORB (UNCHANGED) */}
+          {/* 🔥 ORB (DESKTOP VERSION) */}
           <motion.button
-            className="nav-orb"
+            className="nav-orb desktop-orb"
             onClick={() => setMenuOpen(true)}
             whileHover={{ rotate: 180, scale: 1.15 }}
             whileTap={{ scale: 0.9 }}
@@ -139,6 +139,16 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
             >
+              {/* 🔥 ORB (MOBILE VERSION) */}
+              <motion.button
+                className="nav-orb mobile-orb"
+                onClick={() => {
+                  setMenuOpen(true);
+                }}
+                whileHover={{ rotate: 180, scale: 1.15 }}
+                whileTap={{ scale: 0.9 }}
+              />
+
               {navItems.map((item, i) => (
                 <Link
                   key={i}
