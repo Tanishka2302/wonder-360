@@ -1,160 +1,110 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FiTarget, FiCpu, FiEye, FiZap } from "react-icons/fi";
 import "./about.css";
 import TeamSection from "@/components/team/TeamSection";
 import FooterPremium from "@/components/FooterPremium";
 
 const faqs = [
-  {
-    q: "What makes Wonder 360 Tours different from others?",
-    a: "We combine premium-quality visuals with business-focused strategies to boost engagement and conversions."
-  },
-  {
-    q: "Can you create virtual tours for any type of business?",
-    a: "Yes, we design tours for real estate, hotels, healthcare, education and more."
-  },
-  {
-    q: "How long does it take to create a virtual tour?",
-    a: "Typically 3–7 days depending on project size."
-  },
-  {
-    q: "What equipment do you use?",
-    a: "We use professional 360° cameras and advanced editing tools."
-  },
-  {
-    q: "Will my tour work on mobile & VR?",
-    a: "Yes, fully responsive across all devices."
-  },
-  {
-    q: "Do you offer custom branding?",
-    a: "Yes, including logos, hotspots, and CTA buttons."
-  },
-  {
-    q: "How can it benefit my business?",
-    a: "It increases engagement, trust, and conversions."
-  },
-  {
-    q: "Are your services affordable?",
-    a: "Yes, we offer flexible pricing for all business sizes."
-  }
+  { q: "What makes Wonder 360 Tours different?", a: "We combine premium-quality visuals with business-focused strategies." },
+  { q: "Can you create tours for any business?", a: "Yes, real estate, hotels, healthcare, education and more." },
+  { q: "How long does it take?", a: "Typically 3–7 days depending on project size." },
+  { q: "Will my tour work on mobile?", a: "Yes, fully responsive across all devices." }
+];
+
+const highlights = [
+  { icon: <FiTarget />, title: "Precision", text: "8K high-fidelity captures." },
+  { icon: <FiCpu />, title: "Tech-Driven", text: "Custom hotspots & VR ready." },
+  { icon: <FiEye />, title: "Immersive", text: "Storytelling through space." },
+  { icon: <FiZap />, title: "Fast", text: "Optimized for quick loading." }
 ];
 
 export default function AboutPage() {
   return (
     <main className="about-page">
-
-      {/* 🔥 HERO */}
-      <section className="about-hero" id="about-hero">
+      
+      {/* 🔥 HERO - This section will vanish on mobile */}
+      <section className="about-hero hero-mobile-hide">
         <div className="hero-bg" />
-        <div className="hero-overlay" />
         <div className="hero-glow" />
-
-        <motion.h1
-          initial={{ opacity: 0, y: 80 }}
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }} 
           animate={{ opacity: 1, y: 0 }}
         >
           About Us
         </motion.h1>
       </section>
 
-      {/* 🔥 BRAND PROMISE */}
-      <section className="about-section">
+      {/* 🔥 PHILOSOPHY GRID */}
+      <section className="about-feature-grid">
+        <div className="container">
+          <div className="grid-layout">
+            <motion.div 
+              className="about-visual-side"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <div className="image-stack">
+                <img src="/about1.jpg" alt="Work 1" className="main-img" />
+                <div className="experience-badge">
+                  <span>5+</span>
+                  <p>Years</p>
+                </div>
+              </div>
+            </motion.div>
 
-        {/* TEXT */}
-        <motion.div
-          className="about-card"
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h2>Unique Brand Promise</h2>
-
-          <p>
-            At Wonder 360 Tours, we redefine virtual experiences across industries
-            using immersive storytelling, precision visuals, and interactive tech.
-          </p>
-        </motion.div>
-
-        {/* 🔥 3D IMAGE (HOVER SWAP) */}
-        <motion.div
-          className="about-visual"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-        >
-          <div className="image-card">
-            <img src="/about1.jpg" className="img-default" />
-            <img src="/about2.jpg" className="img-hover" />
-            <div className="shine" />
+            <div className="highlights-side">
+              <h2 className="section-tag">Our Philosophy</h2>
+              <div className="tiles-container">
+                {highlights.map((item, i) => (
+                  <div key={i} className="highlight-tile">
+                    <div className="tile-icon">{item.icon}</div>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </motion.div>
-
+        </div>
       </section>
 
       {/* 🔥 WHY CHOOSE US */}
       <section className="why-section">
-
-  <h2>Why Choose Us</h2>
-
-  <div className="why-grid">
-
-    {/* 🔥 LEFT IMAGE */}
-    <motion.div
-      className="why-image"
-      initial={{ opacity: 0, x: -80 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
-    >
-      <div className="why-img-card">
-        <img src="/about.jpg" alt="" />
-        <div className="img-glow" />
-      </div>
-    </motion.div>
-
-    {/* 🔥 RIGHT FAQ */}
-    <motion.div
-      className="faq"
-      initial={{ opacity: 0, x: 80 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.7 }}
-      viewport={{ once: true }}
-    >
-      {faqs.map((item, i) => (
-        <details key={i} className="faq-item">
-          <summary>{item.q}</summary>
-          <p>{item.a}</p>
-        </details>
-      ))}
-    </motion.div>
-
-  </div>
-
-</section>
+        <h2>Why Choose Us</h2>
+        <div className="why-grid">
+          <div className="why-image">
+            <img src="/about.jpg" alt="Why Choose Us" />
+          </div>
+          <div className="faq">
+            {faqs.map((item, i) => (
+              <details key={i} className="faq-item">
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* 🔥 COUNTERS */}
       <section className="counter-section">
-
         {[
           { num: "5+", text: "Years Experience" },
           { num: "100%", text: "Client Satisfaction" },
           { num: "55+", text: "Virtual Tours" },
         ].map((item, i) => (
-          <motion.div
-            key={i}
-            className="counter-card"
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 50 }}
-          >
+          <div key={i} className="counter-card">
             <h3>{item.num}</h3>
             <p>{item.text}</p>
-          </motion.div>
+          </div>
         ))}
-
       </section>
 
-        <TeamSection />
-
-        <FooterPremium />
+      <TeamSection />
+      <FooterPremium />
     </main>
   );
 }

@@ -1,334 +1,80 @@
-.about-page {
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
+.about-page { background: #000; color: #fff; overflow-x: hidden; }
 
-/* 🔥 HERO */
+/* HERO */
 .about-hero {
-  height: 80vh;
-  position: relative;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4), #000), url('/portfolio-hero.jpg') center/cover;
 }
+.about-hero h1 { font-size: clamp(40px, 8vw, 80px); color: #d4af37; z-index: 2; }
 
-.hero-bg {
+/* FEATURE GRID */
+.about-feature-grid { padding: 100px 10%; }
+.grid-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
+
+.image-stack { position: relative; }
+.main-img { width: 100%; border-radius: 24px; border: 1px solid rgba(212,175,55,0.2); }
+
+.experience-badge {
   position: absolute;
-  inset: 0;
-  background: url("/portfolio-hero.jpg") center/cover no-repeat;
-  filter: brightness(0.4);
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-}
-
-.hero-glow {
-  position: absolute;
-  width: 500px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(212,175,55,0.3), transparent);
-  filter: blur(80px);
-}
-
-.about-hero h1 {
-  font-size: 70px;
-  z-index: 2;
-  text-shadow: 0 0 30px rgba(212,175,55,0.5);
-}
-
-/* 🔥 SECTION */
-.about-section {
-  display: flex;
-  gap: 80px;
-  padding: 100px 10%;
-  align-items: center;
-}
-
-/* 🔥 GLASS CARD */
-.about-card {
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(20px);
-  padding: 40px;
-  border-radius: 20px;
-  border: 1px solid rgba(212,175,55,0.2);
-  box-shadow: 0 0 40px rgba(212,175,55,0.2);
-}
-
-.about-card h2 {
-  color: #d4af37;
-  margin-bottom: 20px;
-}
-
-.about-image img {
-  width: 400px;
-  border-radius: 20px;
-}
-
-/* 🔥 WHY SECTION */
-.why-section {
-  padding: 100px 10%;
-}
-
-.why-section h2 {
-  text-align: center;
-  margin-bottom: 60px;
-  color: #d4af37;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-}
-/* FAQ CARD */
-.faq-item {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 22px 25px;
-  margin-bottom: 18px;
+  bottom: -20px;
+  right: -20px;
+  background: #d4af37;
+  color: #000;
+  padding: 15px 20px;
   border-radius: 12px;
-
-  border: 1px solid rgba(212,175,55,0.15);
-
-  transition: all 0.3s ease;
-}
-
-/* HOVER EFFECT */
-.faq-item:hover {
-  border-color: rgba(212,175,55,0.4);
-  box-shadow: 0 0 25px rgba(212,175,55,0.15);
-}
-
-/* QUESTION */
-.faq-item summary {
-  font-weight: 600;
-  font-size: 18px;
-
-  color: #d4af37; /* 🔥 GOLD */
-
-  cursor: pointer;
-  list-style: none;
-  position: relative;
-}
-
-/* REMOVE DEFAULT ARROW */
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-/* CUSTOM + ICON */
-.faq-item summary::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  color: #d4af37;
-  font-size: 22px;
-  transition: 0.3s;
-}
-
-/* OPEN STATE */
-.faq-item[open] summary::after {
-  content: "–";
-  transform: rotate(180deg);
-}
-
-/* ANSWER */
-.faq-item p {
-  margin-top: 12px;
-  color: #aaa;
-  line-height: 1.6;
-  font-size: 15px;
-}
-
-/* IMAGE */
-.why-image img {
-  width: 100%;
-  border-radius: 20px;
-}
-
-/* 🔥 COUNTER */
-.counter-section {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  padding: 100px;
-}
-
-.counter-card {
   text-align: center;
-  padding: 30px;
-  border-radius: 15px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(212,175,55,0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
 }
+.badge-num { font-size: 24px; font-weight: 900; line-height: 1; }
+.badge-text { font-size: 12px; font-weight: 700; text-transform: uppercase; }
 
-.counter-card h3 {
-  font-size: 40px;
-  color: #d4af37;
+.section-tag { color: #d4af37; font-size: 28px; margin-bottom: 30px; font-weight: 700; }
+.tiles-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.highlight-tile { 
+    background: rgba(255,255,255,0.03); 
+    padding: 25px; 
+    border-radius: 16px; 
+    border: 1px solid rgba(255,255,255,0.05); 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
-.about-visual {
-  perspective: 1200px;
-}
+.tile-icon { color: #d4af37; font-size: 24px; }
+.highlight-tile h3 { font-size: 18px; color: #fff; }
+.highlight-tile p { font-size: 14px; color: #aaa; line-height: 1.4; }
 
-.image-card {
-  position: relative;
-  width: 380px;
-  height: 420px;
-  border-radius: 20px;
-  overflow: hidden;
+/* WHY SECTION */
+.why-section { padding: 80px 10%; }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.why-image img { width: 100%; border-radius: 20px; }
+.faq-item { background: #111; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #222; }
 
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-}
-
-.image-card:hover {
-  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
-}
-
-/* IMAGES */
-.image-card img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.5s ease;
-}
-
-.img-hover {
-  opacity: 0;
-}
-
-.image-card:hover .img-hover {
-  opacity: 1;
-}
-
-.image-card:hover .img-default {
-  opacity: 0;
-}
-
-/* ✨ SHIMMER EFFECT */
-.shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.3),
-    transparent
-  );
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.image-card:hover .shine {
-  opacity: 1;
-  animation: shineMove 1s linear;
-}
-
-@keyframes shineMove {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
-}
-
-/* 📱 MOBILE (up to 768px) */
+/* --- MOBILE REFINE --- */
 @media (max-width: 768px) {
+  .hero-mobile-hide { display: none !important; }
 
-  /* HERO */
-  .about-hero {
-    height: 60vh;
-    padding: 0 20px;
-    text-align: center;
+  /* Add spacing at the very top since Hero is gone */
+  .about-feature-grid { padding: 40px 20px; }
+
+  .grid-layout { grid-template-columns: 1fr; gap: 40px; }
+
+  /* Fix the badge so it doesn't look "wired" */
+  .experience-badge {
+    right: 10px;
+    bottom: 10px;
+    padding: 10px 15px;
   }
 
-  .about-hero h1 {
-    font-size: 36px;
-  }
-
-  /* SECTION STACK */
-  .about-section {
-    flex-direction: column;
-    gap: 40px;
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .about-card {
-    padding: 25px;
-  }
-
-  .about-image img {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  /* WHY GRID */
-  .why-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .why-section {
-    padding: 60px 20px;
-  }
-
-  /* FAQ */
-  .faq-item summary {
-    font-size: 16px;
-  }
-
-  .faq-item p {
-    font-size: 14px;
-  }
-
-  /* COUNTER */
-  .counter-section {
-    flex-direction: column;
-    gap: 30px;
-    padding: 60px 20px;
-  }
-
-  .counter-card h3 {
-    font-size: 28px;
-  }
-
-  /* IMAGE CARD */
-  .image-card {
-    width: 100%;
-    max-width: 300px;
-    height: 340px;
-  }
-
-  /* REMOVE HEAVY 3D ON MOBILE (performance) */
-  .image-card:hover {
-    transform: none;
-  }
-}
-
-
-/* 📱 SMALL PHONES (up to 480px) */
-@media (max-width: 480px) {
-
-  .about-hero h1 {
-    font-size: 28px;
-  }
-
-  .hero-glow {
-    width: 250px;
-    height: 120px;
-  }
-
-  .about-card h2 {
-    font-size: 20px;
-  }
-
-  .counter-card h3 {
-    font-size: 24px;
-  }
-
-  .faq-item {
-    padding: 18px;
-  }
+  .tiles-container { grid-template-columns: 1fr; } /* Stack tiles for readability */
+  
+  .section-tag { font-size: 24px; margin-bottom: 20px; text-align: center; }
+  
+  .why-section { padding: 40px 20px; }
+  .why-grid { grid-template-columns: 1fr; }
 }
