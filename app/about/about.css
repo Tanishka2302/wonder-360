@@ -55,26 +55,74 @@
 .why-image img { width: 100%; border-radius: 20px; }
 .faq-item { background: #111; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #222; }
 
+/* 🔥 NEW: COUNTER SECTION (The missing part) */
+.counter-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 80px 10%;
+}
+
+.counter-card {
+  flex: 1;
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.counter-card:hover {
+  transform: translateY(-10px);
+  border-color: #d4af37;
+}
+
+.counter-card h3 {
+  font-size: 48px;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.counter-card p {
+  font-size: 16px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 /* --- MOBILE REFINE --- */
 @media (max-width: 768px) {
   .hero-mobile-hide { display: none !important; }
 
-  /* Add spacing at the very top since Hero is gone */
   .about-feature-grid { padding: 40px 20px; }
-
   .grid-layout { grid-template-columns: 1fr; gap: 40px; }
 
-  /* Fix the badge so it doesn't look "wired" */
   .experience-badge {
     right: 10px;
     bottom: 10px;
     padding: 10px 15px;
   }
 
-  .tiles-container { grid-template-columns: 1fr; } /* Stack tiles for readability */
+  .tiles-container { grid-template-columns: 1fr; } 
   
   .section-tag { font-size: 24px; margin-bottom: 20px; text-align: center; }
   
   .why-section { padding: 40px 20px; }
   .why-grid { grid-template-columns: 1fr; }
+
+  /* 🔥 MOBILE COUNTER FIX */
+  .counter-section {
+    flex-direction: column; /* Stacks cards vertically on mobile */
+    gap: 20px;
+    padding: 40px 20px;
+  }
+
+  .counter-card {
+    padding: 30px;
+  }
+
+  .counter-card h3 {
+    font-size: 36px;
+  }
 }
