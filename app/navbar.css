@@ -3,58 +3,69 @@
   box-sizing: border-box;
 }
 
-/* ================= NAVBAR CORE ================= */
+/* ================= NAVBAR CORE (SLIMMED DOWN) ================= */
 .navbar {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  height: 120px;
+  height: 80px; /* 🟢 Slim desktop view */
   padding: 0 6%;
   background: #000;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10000; /* 🔥 Bumped up so navbar stays above the mobile menu */
-  border-bottom: 1px solid rgba(212,175,55,.18);
+  z-index: 10000; 
+  border-bottom: 1px solid rgba(158,215,10,.18);
   box-shadow: 0 10px 40px rgba(0,0,0,.8);
 }
 
-/* ================= LOGO ================= */
+/* ================= LOGO & TAGLINE (SIDE-BY-SIDE FIX) ================= */
 .logo-wrap {
   display: flex;
   align-items: center;
-  min-width: 340px;
+  min-width: 500px; /* Increased to allow them to sit side-by-side comfortably */
 }
 
 .brand-link {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row; /* 🟢 Changed to row to put them side-by-side */
+  align-items: center;  /* Centers them vertically together */
   text-decoration: none;
-  gap: 4px; 
+  gap: 15px;           /* Clean spacing between logo and text */
 }
 
 .logo-img {
-  height: 96px; 
+  height: 60px;        
   width: auto;
   display: block;
   object-fit: contain;
-  margin-bottom: -14px;
-  filter: drop-shadow(0 0 16px rgba(212,175,55,.35));
+  filter: drop-shadow(0 0 16px rgba(158,215,10,.35));
+  
+  /* 🔥 THE FIX: Visually scales up the actual asset to override the empty asset padding */
+  transform: scale(1.4); 
+  transform-origin: left center; /* Keeps it locked to the left edge so it doesn't overlap the text */
+  
   transition: .3s ease;
 }
 
+/* Modifying the hover effect slightly so it coordinates smoothly with the scale boost */
+.logo-wrap:hover .logo-img {
+  transform: scale(1.45); 
+}
+
 .tagline-text {
-  font-size: 13px;
+  font-size: 11px; 
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2px; 
   text-transform: uppercase;
-  color: #d4af37;
-  margin-left: 26px;   
-  margin-top: -10px;
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
+  margin-left: 0px;    /* Reset old column offsets */
+  margin-top: 0px;     /* Reset old column offsets */
   white-space: nowrap;
   opacity: .95;
+  border-left: 1px solid rgba(158, 215, 10, 0.3); /* Premium subtle divider line */
+  padding-left: 15px;
 }
 
 .logo-wrap:hover .logo-img {
@@ -82,7 +93,7 @@
 
 .nav-links li a:hover,
 .nav-links .active a {
-  color: #d4af37;
+  color: #9ED70A;
 }
 
 .nav-links li a::after {
@@ -92,7 +103,7 @@
   bottom: 0;
   width: 0%;
   height: 2px;
-  background: #d4af37;
+  background: #9ED70A;
   transition: 0.3s;
 }
 
@@ -122,7 +133,7 @@
   opacity: 0;
   padding: 8px 0;
   border-radius: 30px;
-  border: 1px solid rgba(212,175,55,0.3);
+  border: 1px solid rgba(158,215,10,0.3);
   background: rgba(20,20,20,0.9);
   color: #fff;
   outline: none;
@@ -149,10 +160,10 @@
 }
 
 .search-btn:hover {
-  color: #d4af37;
+  color: #9ED70A;
 }
 
-/* ================= GOLD ORB ================= */
+/* ================= WONDER360 ORB HUB ================= */
 .nav-orb {
   width: 38px;
   height: 38px;
@@ -162,8 +173,10 @@
   border: none;
   padding: 0;
   outline: none;
-  background: radial-gradient(circle, #d4af37, #8f6f1a);
-  box-shadow: 0 0 15px rgba(212,175,55,0.4);
+  background: radial-gradient(circle, #9ED70A, #3D8500); /* 🟢 BRAND GRADIENT */
+  box-shadow: 
+    0 0 15px rgba(158,215,10,0.4),
+    0 0 25px rgba(32,185,217,0.15); /* 🔵 HAZE GLOW */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,13 +190,15 @@
 }
 
 .nav-orb:hover {
-  box-shadow: 0 0 25px rgba(212,175,55,0.7);
+  box-shadow: 
+    0 0 25px rgba(158,215,10,0.7),
+    0 0 35px rgba(32,185,217,0.4);
 }
 
-/* 🔥 Hide mobile orb by default */
+/* Hide mobile orb by default */
 .mobile-orb {
   display: none;
-  margin: 0 auto 30px auto; /* Centers it inside the mobile menu */
+  margin: 0 auto 30px auto; 
 }
 
 /* ================= ORB HUB MENU OVERLAY ================= */
@@ -199,7 +214,7 @@
 }
 
 .orb-menu {
-  position: relative; /* Anchor point for the diamond */
+  position: relative; 
   width: 320px;
   height: 320px;
   display: flex;
@@ -207,7 +222,6 @@
   justify-content: center;
 }
 
-/* 🔥 THE FIX: Target the anchor tags directly */
 .orb-item-link {
   position: absolute !important; 
   display: flex;
@@ -221,10 +235,9 @@
   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Force each link to its corner of the diamond */
 .orb-item-link:nth-child(1) { transform: translate(0, -110px) !important; } 
-.orb-item-link:nth-child(2) { transform: translate(110px, 0) !important; }  
-.orb-item-link:nth-child(3) { transform: translate(0, 110px) !important; }  
+.orb-item-link:nth-child(2) { transform: translate(110px, 0) !important; }   
+.orb-item-link:nth-child(3) { transform: translate(0, 110px) !important; }   
 .orb-item-link:nth-child(4) { transform: translate(-110px, 0) !important; } 
 
 .orb-icon-span {
@@ -235,10 +248,17 @@
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(158,215,10, 0.3);
   font-size: 26px;
   margin-bottom: 8px;
-  color: #d4af37;
+  color: #9ED70A;
+  transition: all 0.3s ease;
+}
+
+.orb-item-link:hover .orb-icon-span {
+  background: rgba(158,215,10,0.1);
+  border-color: #9ED70A;
+  box-shadow: 0 0 20px rgba(158,215,10,0.3);
 }
 
 .orb-label-text {
@@ -247,6 +267,7 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
+
 /* ================= HAMBURGER ICON ================= */
 .menu-toggle {
   display: none;
@@ -255,7 +276,7 @@
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
-  z-index: 10001; /* Keeps it clickable when menu is open */
+  z-index: 10001; 
 }
 
 .menu-toggle span {
@@ -267,24 +288,17 @@
   transform-origin: left center;
 }
 
-/* 🔥 Turn Hamburger into an 'X' when open */
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg);
-}
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg);
-}
+.menu-toggle.open span:nth-child(1) { transform: rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: rotate(-45deg); }
 
-/* ================= 🔥 MOBILE MENU DRAWER (NEW) ================= */
+/* ================= 📱 MOBILE MENU DRAWER ================= */
 .mobile-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
-  z-index: 9998; /* Below navbar, above page */
+  z-index: 9998; 
 }
 
 .mobile-menu {
@@ -294,11 +308,11 @@
   height: 100vh;
   width: 260px;
   background: #0a0a0a;
-  z-index: 9999; /* Below navbar */
+  z-index: 9999; 
   display: flex;
   flex-direction: column;
-  padding: 80px 30px 30px; /* Top padding clears the navbar */
-  border-left: 1px solid rgba(212,175,55,.18);
+  padding: 80px 30px 30px; 
+  border-left: 1px solid rgba(158,215,10,.18);
   box-shadow: -10px 0 40px rgba(0,0,0,0.8);
 }
 
@@ -313,10 +327,110 @@
 
 .mobile-menu a:hover,
 .mobile-menu a.active {
-  color: #d4af37;
+  color: #9ED70A;
 }
 
-/* ================= 📱 TABLET (≤ 900px) ================= */
+/* ================= MODAL SUBMISSION WINDOWS ================= */
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10010; 
+}
+
+.contact-modal {
+  background: rgba(15, 15, 15, 0.98);
+  border: 1px solid rgba(158,215,10, 0.3);
+  padding: 40px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 
+    0 0 60px rgba(158,215,10, 0.15),
+    0 0 80px rgba(32,185,217,0.06);
+  text-align: center;
+}
+
+.contact-modal h3 {
+  color: #9ED70A;
+  font-size: 26px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.contact-modal p {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.contact-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-modal input, 
+.contact-modal textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(158,215,10, 0.2);
+  padding: 14px;
+  border-radius: 12px;
+  color: #fff;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.contact-modal input:focus, 
+.contact-modal textarea:focus {
+  border-color: #9ED70A;
+  background: rgba(158,215,10, 0.05);
+  box-shadow: 0 0 10px rgba(158,215,10, 0.15);
+}
+
+.submit-btn {
+  background: radial-gradient(circle, #9ED70A, #3D8500);
+  color: #000;
+  font-weight: 700;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 5px 20px rgba(158,215,10, 0.4),
+    0 0 25px rgba(32,185,217,0.15);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #9ED70A;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-modal:hover {
+  transform: scale(1.15);
+}
+
+/* ================= 📱 TABLET VIEWPORTS (≤ 900px) ================= */
 @media (max-width: 900px) {
   .nav-links {
     display: none;
@@ -326,50 +440,58 @@
   }
   .navbar {
     grid-template-columns: auto 1fr auto;
-    height: 100px;
+    height: 70px; /* Slimmer layout match */
   }
   .logo-img {
-    height: 70px;
+    height: 42px;
   }
   .tagline-text {
-    font-size: 11px;
+    font-size: 9px;
     letter-spacing: 2px;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-top: 0;
   }
   .search-box.open input {
     width: 140px;
   }
 }
-/* ================= ✅ FINAL CLEAN MOBILE (≤ 480px) ================= */
+
+/* ================= 📱 MOBILE VIEWPORTS (≤ 480px) ================= */
 @media (max-width: 480px) {
   .navbar {
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    height: 70px; /* 🔥 Made the navbar a little taller to give the logo room to breathe */
+    height: 70px; 
     padding: 0 20px 0 15px; 
     width: 100%;
     max-width: 100vw; 
   }
+  /* Locate this inside your (max-width: 480px) media query */
+@media (max-width: 480px) {
   
-  .logo-wrap {
-    min-width: 0; 
-    max-width: 65%; /* Leaves 35% of the screen for your right-side icons */
-  }
-  
- .logo-img {
-    height: 48px !important; 
+  /* ... keep your existing navbar and logo-wrap code here ... */
+
+  .logo-img {
+    height: 38px !important;       /* Clean height for mobile header bars */
     margin-bottom: 0 !important;
     
-    /* 🔥 The Magic Fix: Visually magnify the logo by 50% */
-    transform: scale(1.5); 
-    
-    /* 🔥 Anchors it to the left so it grows outwards, not into your buttons */
+    /* 🟢 THE MOBILE OVERRIDE FIX */
+    transform: scale(1.0) !important; /* Resets the huge 1.4 desktop scale back to normal */
     transform-origin: left center; 
     
     max-width: 100%; 
     object-fit: contain;
   }
+
+  /* ... keep the rest of your nav-actions, search, menu-toggle code below ... */
+}
+  .logo-wrap {
+    min-width: 0; 
+    max-width: 65%; 
+  }
+  
+ 
   
   .tagline-text {
     display: none;
@@ -397,99 +519,10 @@
     flex-shrink: 0;
   }
   
-  /* 🔥 Orb Swapping Logic */
   .desktop-orb {
     display: none !important; 
   }
   .mobile-orb {
     display: flex !important; 
   }
-}
-.contact-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(15px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10010; 
-}
-
-.contact-modal {
-  background: rgba(15, 15, 15, 0.98);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  padding: 40px;
-  border-radius: 24px;
-  width: 90%;
-  max-width: 450px;
-  position: relative;
-  box-shadow: 0 0 60px rgba(212, 175, 55, 0.15);
-  text-align: center;
-}
-
-.contact-modal h3 {
-  color: #d4af37;
-  font-size: 26px;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.contact-modal p {
-  color: #aaa;
-  font-size: 14px;
-  margin-bottom: 25px;
-}
-
-.contact-modal form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-modal input, 
-.contact-modal textarea {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  padding: 14px;
-  border-radius: 12px;
-  color: #fff;
-  outline: none;
-  transition: 0.3s ease;
-}
-
-.contact-modal input:focus, 
-.contact-modal textarea:focus {
-  border-color: #d4af37;
-  background: rgba(212, 175, 55, 0.05);
-}
-
-.submit-btn {
-  background: radial-gradient(circle, #d4af37, #8f6f1a);
-  color: #000;
-  font-weight: 700;
-  padding: 16px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-}
-
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: none;
-  border: none;
-  color: #d4af37;
-  font-size: 22px;
-  cursor: pointer;
 }

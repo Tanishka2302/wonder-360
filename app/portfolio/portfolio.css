@@ -3,6 +3,7 @@
   background: #000;
   color: #fff;
 }
+
 /* HERO FIX */
 .portfolio-hero {
   height: 75vh;
@@ -33,7 +34,7 @@
   100% { transform: scale(1.1); }
 }
 
-/* ✨ GOLD LIGHT GLOW */
+/* 🟢 WONDER360 LIGHT GLOW */
 .hero-glow {
   position: absolute;
   width: 600px;
@@ -41,7 +42,8 @@
 
   background: radial-gradient(
     circle,
-    rgba(212,175,55,0.18),
+    rgba(158,215,10,0.12) 0%,
+    rgba(32,185,217,0.05) 60%,
     transparent 70%
   );
 
@@ -51,17 +53,6 @@
   transform: translateX(-50%);
 }
 
-/* TITLE */
-.portfolio-hero h1 {
-  position: relative;
-  font-size: 5rem;
-  font-weight: 700;
-  color: #fff;
-
-  text-shadow:
-    0 0 20px rgba(212,175,55,0.4),
-    0 0 60px rgba(212,175,55,0.2);
-}
 .portfolio-hero .overlay {
   position: absolute;
   inset: 0;
@@ -72,16 +63,17 @@
   );
 }
 
+/* TITLE */
 .portfolio-hero h1 {
   position: relative;
   font-size: 5rem;
   font-weight: 700;
-
   color: #fff;
+  text-align: center;
 
   text-shadow:
-    0 0 20px rgba(212,175,55,0.3),
-    0 0 40px rgba(212,175,55,0.2);
+    0 0 20px rgba(158,215,10,0.25),
+    0 0 40px rgba(32,185,217,0.15);
 }
 
 /* CONTENT */
@@ -95,7 +87,7 @@
   font-size: 2.5rem;
 
   color: transparent;
-  -webkit-text-stroke: 1px rgba(212,175,55,0.6);
+  -webkit-text-stroke: 1px rgba(158,215,10,0.6);
 }
 
 /* GRID */
@@ -157,17 +149,18 @@
 
 .card-overlay h3 {
   font-size: 1.4rem;
-  color: #d4af37;
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
 }
 
-/* GOLD GLOW */
+/* 🟢 BRAND MOUSE GLOW POSITION LAYER */
 .card-glow {
   position: absolute;
   inset: 0;
 
   background: radial-gradient(
     circle at var(--x,50%) var(--y,50%),
-    rgba(212,175,55,0.25),
+    rgba(158,215,10,0.2),
+    rgba(32,185,217,0.05) 50%,
     transparent 60%
   );
 
@@ -179,18 +172,11 @@
   opacity: 1;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .portfolio-hero h1 {
-    font-size: 3rem;
-  }
+.portfolio-card:active {
+  transform: scale(0.97);
 }
 
-/* 📱 TABLET (≤ 900px) */
+/* ================= 📱 TABLET (≤ 900px) ================= */
 @media (max-width: 900px) {
 
   .portfolio-hero {
@@ -209,7 +195,7 @@
     filter: blur(100px);
   }
 
-  /* 👉 2 COLUMN GRID (better than 1 directly) */
+  /* 2 COLUMN GRID FOR TABLETS */
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -228,6 +214,7 @@
   }
 }
 
+/* ================= 📱 MOBILE (≤ 480px) ================= */
 @media (max-width: 480px) {
 
   .portfolio-hero {
@@ -244,7 +231,7 @@
     filter: blur(80px);
   }
 
-  /* 👉 1 COLUMN FOR SMALL SCREENS */
+  /* 1 COLUMN FOR SMALL SCREENS */
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
@@ -257,13 +244,13 @@
     font-size: 1.6rem;
   }
 
-  /* ❌ Remove hover dependency */
+  /* Remove hover state dependency for responsive mobile screens */
   .card-overlay {
     opacity: 1;
     transform: translateY(0);
     background: linear-gradient(
       to top,
-      rgba(0,0,0,0.8),
+      rgba(0,0,0,0.85),
       transparent
     );
   }
@@ -275,8 +262,4 @@
   .card-glow {
     display: none;
   }
-}
-
-.portfolio-card:active {
-  transform: scale(0.97);
 }

@@ -37,7 +37,7 @@
 
   box-shadow:
     0 20px 60px rgba(0,0,0,0.6),
-    0 0 40px rgba(255,255,255,0.05);
+    0 0 40px rgba(158,215,10,0.06);
 
   filter: brightness(0.9);
 }
@@ -74,17 +74,24 @@
 .service-item:hover {
   transform: translateX(10px);
   background: rgba(255,255,255,0.06);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-color: rgba(158,215,10,0.2);
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.5),
+    0 0 20px rgba(158,215,10,0.1);
 }
 
 .service-item span {
-  color: #d4af37; /* 🔥 GOLD */
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
   font-size: 18px;
 }
 
 .service-item p {
   color: #ddd;
   font-size: 15px;
+}
+
+.service-item:active {
+  transform: scale(0.97);
 }
 
 /* ================= BUTTON ================= */
@@ -97,14 +104,14 @@
   border: none;
   cursor: pointer;
 
-  color: #000; /* 🔥 BLACK TEXT */
+  color: #000; /* BLACK TEXT */
   font-weight: 600;
   font-size: 14px;
 
   border-radius: 10px;
   overflow: hidden;
 
-  background: linear-gradient(135deg, #d4af37, #b8962e); /* 🔥 GOLD */
+  background: linear-gradient(135deg, #3D8500, #9ED70A); /* 🟢 BRAND GRADIENT */
 
   transition: all 0.3s ease;
   position: relative;
@@ -112,7 +119,7 @@
   z-index: 5;
 }
 
-/* 🔥 GOLD SHINE */
+/* SHINE OVERLAY EFFECT */
 .premium-btn::before {
   content: "";
   position: absolute;
@@ -121,7 +128,7 @@
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255,255,255,0.5),
+    rgba(255,255,255,0.4),
     transparent
   );
 
@@ -133,12 +140,12 @@
   transform: translateX(100%);
 }
 
-/* 🔥 HOVER */
+/* HOVER (WITH INTEGRATED CYAN HIGHLIGHT GLOW) */
 .premium-btn:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow:
-    0 10px 30px rgba(212,175,55,0.5),
-    0 0 40px rgba(212,175,55,0.3);
+    0 10px 30px rgba(158,215,10,0.4),
+    0 0 40px rgba(32,185,217,0.2);
 }
 
 .premium-btn span {
@@ -149,13 +156,6 @@
   letter-spacing: 1px;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 900px) {
-  .services-container {
-    flex-direction: column;
-  }
-}
 /* ================= 📱 TABLET (≤ 900px) ================= */
 @media (max-width: 900px) {
 
@@ -175,7 +175,7 @@
 
   /* IMAGE FIX */
   .services-image img {
-    transform: none; /* ❌ remove tilt */
+    transform: none; /* remove tilt */
     border-radius: 16px;
   }
 
@@ -203,7 +203,8 @@
     align-self: center;
   }
 }
-/* ================= 📱 MOBILE ================= */
+
+/* ================= 📱 MOBILE (≤ 480px) ================= */
 @media (max-width: 480px) {
 
   .services {
@@ -233,25 +234,23 @@
     font-size: 13px;
   }
 
-  /* BUTTON */
+  /* BUTTON FORM FACTOR OVERRIDES */
   .premium-btn {
     width: 100%;
     text-align: center;
     padding: 12px;
   }
 
-  /* ❌ remove heavy hover */
+  /* remove mouse tracking transforms for mobile layout bounds */
   .service-item:hover {
     transform: none;
     box-shadow: none;
+    background: rgba(255,255,255,0.03);
+    border-color: rgba(255,255,255,0.08);
   }
 
   .premium-btn:hover {
     transform: none;
     box-shadow: none;
   }
-}
-
-.service-item:active {
-  transform: scale(0.97);
 }

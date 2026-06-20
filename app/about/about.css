@@ -7,34 +7,45 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4), #000), url('/portfolio-hero.jpg') center/cover;
+  
+  /* Blends deep brand navy into true black, with a glowing green core */
+  background: 
+    radial-gradient(circle at center, rgba(158, 215, 10, 0.08) 0%, transparent 60%),
+    linear-gradient(135deg, #044e13 0%, #000000 50%, #000000 100%);
+  
+  overflow: hidden;
 }
-.about-hero h1 { font-size: clamp(40px, 8vw, 80px); color: #d4af37; z-index: 2; }
+.about-hero h1 { 
+  font-size: clamp(40px, 8vw, 80px); 
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
+  z-index: 2; 
+  text-shadow: 0 0 30px rgba(158,215,10,0.2);
+}
 
 /* FEATURE GRID */
 .about-feature-grid { padding: 100px 10%; }
 .grid-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: center; }
 
 .image-stack { position: relative; }
-.main-img { width: 100%; border-radius: 24px; border: 1px solid rgba(212,175,55,0.2); }
+.main-img { width: 100%; border-radius: 24px; border: 1px solid rgba(158,215,10,0.2); }
 
 .experience-badge {
   position: absolute;
   bottom: -20px;
   right: -20px;
-  background: #d4af37;
+  background: linear-gradient(135deg, #3D8500, #9ED70A); /* 🟢 BRAND GRADIENT */
   color: #000;
   padding: 15px 20px;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(158,215,10,0.2);
   display: flex;
   flex-direction: column;
 }
 .badge-num { font-size: 24px; font-weight: 900; line-height: 1; }
 .badge-text { font-size: 12px; font-weight: 700; text-transform: uppercase; }
 
-.section-tag { color: #d4af37; font-size: 28px; margin-bottom: 30px; font-weight: 700; }
+.section-tag { color: #9ED70A; font-size: 28px; margin-bottom: 30px; font-weight: 700; }
 .tiles-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
 .highlight-tile { 
     background: rgba(255,255,255,0.03); 
@@ -44,8 +55,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    transition: border-color 0.3s ease;
 }
-.tile-icon { color: #d4af37; font-size: 24px; }
+.highlight-tile:hover {
+  border-color: rgba(32, 185, 217, 0.25); /* 🔵 SUBTLE CYAN GLOW BORDER */
+}
+.tile-icon { color: #9ED70A; font-size: 24px; }
 .highlight-tile h3 { font-size: 18px; color: #fff; }
 .highlight-tile p { font-size: 14px; color: #aaa; line-height: 1.4; }
 
@@ -55,7 +70,7 @@
 .why-image img { width: 100%; border-radius: 20px; }
 .faq-item { background: #111; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #222; }
 
-/* 🔥 NEW: COUNTER SECTION (The missing part) */
+/* COUNTER SECTION */
 .counter-section {
   display: flex;
   justify-content: center;
@@ -68,19 +83,23 @@
   text-align: center;
   padding: 40px 20px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(158,215,10, 0.1);
   border-radius: 20px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .counter-card:hover {
   transform: translateY(-10px);
-  border-color: #d4af37;
+  border-color: #9ED70A;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(158,215,10,0.15),
+    0 0 35px rgba(32,185,217,0.1); /* 🔵 CYBER ACCENT SHADOW DEPTH */
 }
 
 .counter-card h3 {
   font-size: 48px;
-  color: #d4af37;
+  color: #9ED70A;
   margin-bottom: 10px;
 }
 
@@ -111,7 +130,7 @@
   .why-section { padding: 40px 20px; }
   .why-grid { grid-template-columns: 1fr; }
 
-  /* 🔥 MOBILE COUNTER FIX */
+  /* MOBILE COUNTER FIX */
   .counter-section {
     flex-direction: column; /* Stacks cards vertically on mobile */
     gap: 20px;
@@ -124,5 +143,10 @@
 
   .counter-card h3 {
     font-size: 36px;
+  }
+  
+  .counter-card:hover {
+    transform: none; /* Disables mobile card lift shift profiles */
+    box-shadow: none;
   }
 }

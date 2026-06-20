@@ -25,7 +25,7 @@
 
 .mini {
   font-size: 14px;
-  color: #d4af37;
+  color: #9ED70A;
   letter-spacing: 2px;
 }
 
@@ -40,7 +40,7 @@
 
 .about h1 em {
   font-style: italic;
-  color: #d4af37;
+   color: #9ED70A;
 }
 
 /* ================= CTA ================= */
@@ -55,8 +55,8 @@
 }
 
 .cta:hover {
-  background: #d4af37;
-  color: black;
+   background: #9ED70A;
+  color: #000;
 }
 
 /* ================= CONTENT ================= */
@@ -94,7 +94,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(212,175,55,0.15), transparent);
+  background: radial-gradient(
+    circle,
+    rgba(158,215,10,0.18),
+    transparent
+  );
   opacity: 0;
   transition: 0.4s;
 
@@ -124,7 +128,11 @@
   justify-content: center;
   text-align: center;
 
-  background: linear-gradient(135deg, #d4af37, #b8962e);
+ background: linear-gradient(
+  135deg,
+  #3D8500,
+  #9ED70A
+);
   color: #000;
 
   font-weight: 600;
@@ -132,8 +140,8 @@
   z-index: 5; /* ✅ FIX: bring above everything */
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.6),
-    0 0 20px rgba(212,175,55,0.3);
+  0 10px 30px rgba(0,0,0,0.6),
+  0 0 20px rgba(158,215,10,0.35);
 
   transition: all 0.3s ease;
 }
@@ -142,8 +150,8 @@
 .explore:hover {
   transform: scale(1.1);
   box-shadow:
-    0 20px 50px rgba(0,0,0,0.8),
-    0 0 40px rgba(212,175,55,0.6);
+  0 20px 50px rgba(0,0,0,0.8),
+  0 0 40px rgba(158,215,10,0.6);
 }
 
 /* ================= TEXT ================= */
@@ -158,7 +166,7 @@
   content: "";
   width: 80px;
   height: 2px;
-  background: #d4af37;
+  background: #20B9D9;
   display: block;
   margin-top: 10px;
 }

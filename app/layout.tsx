@@ -5,14 +5,15 @@ import Navbar from "./Navbar";
 
 
 
-export const metadata: Metadata = {
+
+ export const metadata = {
   title: "WONDER 360 TOURS",
-  description: "Transforming Spaces into Stories",
+  description: "Immersive 360° Virtual Tour Solutions",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
+  icon: "/icon.png",
+  shortcut: "/icon.png",
+  apple: "/icon.png",
+},
 };
 
 export default function RootLayout({

@@ -8,13 +8,13 @@
   overflow: hidden;
 }
 
-/* GOLD GLOW */
+/* 🟢 WONDER360 AMBIENT LIGHT (HYBRID GREEN & CYAN OVERLAY) */
 .who::before {
   content: "";
   position: absolute;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(212,175,55,0.15), transparent);
+  background: radial-gradient(circle, rgba(158,215,10,0.12) 0%, rgba(32,185,217,0.04) 50%, transparent 70%);
   top: 20%;
   right: 10%;
   filter: blur(100px);
@@ -29,7 +29,7 @@
   z-index: 1;
 
   color: transparent;
-  -webkit-text-stroke: 1px rgba(212,175,55,0.5);
+  -webkit-text-stroke: 1px rgba(158,215,10,0.6);
 }
 
 /* ================= LAYOUT ================= */
@@ -59,7 +59,7 @@
 }
 
 .who-text span {
-  color: #d4af37;
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
   font-weight: 600;
 }
 
@@ -71,7 +71,7 @@
   border-radius: 8px;
   cursor: pointer;
 
-  background: linear-gradient(135deg, #d4af37, #b8962e);
+  background: linear-gradient(135deg, #3D8500, #9ED70A); /* 🟢 BRAND GRADIENT */
   color: #000;
   font-weight: 600;
 
@@ -80,7 +80,9 @@
 
 .who-btn:hover {
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(212,175,55,0.4);
+  box-shadow: 
+    0 12px 30px rgba(158,215,10,0.4),
+    0 0 25px rgba(32,185,217,0.2);
 }
 
 /* ================= IMAGE ================= */
@@ -104,7 +106,7 @@
 
   box-shadow:
     0 30px 80px rgba(0,0,0,0.7),
-    0 0 40px rgba(212,175,55,0.15);
+    0 0 40px rgba(158,215,10,0.15);
 
   filter: brightness(0.85) contrast(1.05);
 
@@ -138,7 +140,7 @@
   transition: 0.8s;
 }
 
-/* HOVER */
+/* HOVER INTERACTION OVERRIDES */
 .who-image:hover img {
   transform: scale(1.1);
   filter: brightness(1.05);
@@ -151,10 +153,11 @@
 .who-image:hover {
   box-shadow:
     0 40px 100px rgba(0,0,0,0.9),
-    0 0 60px rgba(212,175,55,0.25);
+    0 0 40px rgba(158,215,10,0.3),
+    0 0 60px rgba(32,185,217,0.15);
 }
 
-/* ================= 📱 TABLET ================= */
+/* ================= 📱 TABLET (≤ 900px) ================= */
 
 @media (max-width: 900px) {
 
@@ -182,7 +185,7 @@
     transform: none;
   }
 
-  /* reduce glow */
+  /* reduce layout glow bounds */
   .who::before {
     width: 350px;
     height: 350px;
@@ -195,7 +198,7 @@
     align-self: center;
   }
 
-  /* remove heavy animation */
+  /* eliminate complex layout animation overheads */
   .who-image img {
     animation: none;
   }
@@ -205,7 +208,7 @@
   }
 }
 
-/* ================= 📱 MOBILE ================= */
+/* ================= 📱 MOBILE (≤ 480px) ================= */
 
 @media (max-width: 480px) {
 
@@ -213,13 +216,15 @@
     padding: 60px 15px;
   }
 
-  /* FIX TITLE VISIBILITY */
+  /* FIXED SOLID HEADING ACCENT */
   .who h2 {
     font-size: 1.8rem;
 
-    color: #d4af37;
+    color: #9ED70A;
     -webkit-text-stroke: 0;
-    text-shadow: 0 0 15px rgba(212,175,55,0.3);
+    text-shadow: 
+      0 0 15px rgba(158,215,10,0.25),
+      0 0 30px rgba(32,185,217,0.1);
   }
 
   .who-text p {
@@ -236,13 +241,13 @@
     padding: 12px;
   }
 
-  /* remove hover */
+  /* remove mouse tracking transforms for mobile layout bounds */
   .who-btn:hover {
     transform: none;
     box-shadow: none;
   }
 
-  /* tap effect */
+  /* active touch responsive profiles */
   .who-btn:active {
     transform: scale(0.97);
   }

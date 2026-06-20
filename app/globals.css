@@ -1,5 +1,20 @@
 /* ================= RESET ================= */
+:root {
+  /* Wonder 360 Brand Colors */
 
+  --bg: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+
+  --primary: #9ED70A;       /* Lime Green */
+  --primary-dark: #3D8500;  /* Dark Green */
+
+  --secondary: #20B9D9;     /* Cyan */
+
+  --accent: #0A1B6B;        /* Deep Navy */
+
+  --text: #ffffff;
+  --text-muted: #d0d0d0;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -9,8 +24,8 @@ body {
   padding: 0;
   height: 100%;
   font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: white;
+  background: var(--bg);
+  color: var(--text);
 }
 
 /* ================= HERO ================= */
@@ -70,7 +85,7 @@ body {
   padding: 25px 45px;
   border-radius: 12px;
 
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(158,215,10,0.18);
   text-align: center;
 }
 
@@ -90,7 +105,8 @@ body {
 /* ================= CARD ================= */
 
 .card {
-  background: #1a1a1a;
+   background: var(--bg-secondary);
+  border: 1px solid rgba(158, 215, 10, 0.12);
   border-radius: 16px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -107,7 +123,7 @@ body {
 .card p {
   padding: 20px;
   font-size: 16px;
-  color: #ddd;
+  color: var(--text-muted);
 }
 
 /* Hover */
@@ -165,7 +181,11 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  background: linear-gradient(
+  to top,
+  rgba(10,27,107,0.55),
+  transparent
+);
   z-index: 1;
 }
 
@@ -333,9 +353,10 @@ will-change: transform, top, left, width, height;
 
   animation: projectSmooth 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.6),
-    0 60px 120px rgba(0,0,0,0.5);
+ box-shadow:
+  0 0 30px rgba(158,215,10,0.25),
+  0 0 80px rgba(32,185,217,0.18),
+  0 20px 60px rgba(0,0,0,0.6);
 }
 
 /* IMAGE */

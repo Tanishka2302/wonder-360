@@ -1,3 +1,5 @@
+/* ================= SECTION ================= */
+
 .team-section {
   background: #000;
   padding: 120px 60px;
@@ -5,7 +7,7 @@
 }
 
 .team-section h2 {
-  color: #d4af37;
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
   font-size: 42px;
   margin-bottom: 60px;
 }
@@ -16,6 +18,7 @@
   display: flex;
   justify-content: center;
   gap: 40px;
+  scroll-behavior: smooth;
 }
 
 /* 🤖 ROBO */
@@ -26,29 +29,29 @@
   z-index: 10;
 }
 
-/* 🟡 MAIN BODY */
+/* 🟢 WONDER360 ROBO CORE BODY */
 .robo-core {
   width: 60px;
   height: 60px;
   border-radius: 50%;
 
-  background: radial-gradient(circle at 30% 30%, #ffd700, #b8962e, #000);
+  background: radial-gradient(circle at 30% 30%, #9ED70A, #3D8500, #000);
   
   box-shadow:
-    0 0 25px rgba(212,175,55,0.8),
-    0 0 60px rgba(212,175,55,0.4),
+    0 0 25px rgba(158,215,10,0.8),
+    0 0 45px rgba(32,185,217,0.4),
     inset 0 0 10px rgba(255,255,255,0.3);
 
   position: relative;
 }
 
-/* ✨ OUTER RING */
+/* 🔵 OUTER CYAN RING */
 .robo-core::after {
   content: "";
   position: absolute;
   inset: -12px;
   border-radius: 50%;
-  border: 2px solid rgba(212,175,55,0.5);
+  border: 2px solid rgba(32,185,217,0.5);
 
   animation: pulseRing 2s infinite;
 }
@@ -83,6 +86,7 @@
   overflow: hidden;
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.05);
   transition: 0.5s;
 }
 
@@ -106,10 +110,14 @@
   font-size: 14px;
 }
 
-/* ✨ ACTIVE */
+/* 🟢 ACTIVE STATE */
 .team-card.active {
-  box-shadow: 0 0 40px rgba(212,175,55,0.5);
+  border-color: rgba(158,215,10,0.3);
+  box-shadow: 
+    0 0 30px rgba(158,215,10,0.3),
+    0 0 40px rgba(32,185,217,0.1);
 }
+
 /* 🔥 OVERLAY */
 .team-modal-overlay {
   position: fixed;
@@ -137,8 +145,10 @@
   background: rgba(15,15,15,0.9);
   backdrop-filter: blur(20px);
 
-  border: 1px solid rgba(212,175,55,0.3);
-  box-shadow: 0 0 80px rgba(212,175,55,0.2);
+  border: 1px solid rgba(158,215,10,0.3);
+  box-shadow: 
+    0 0 80px rgba(158,215,10,0.15),
+    0 0 100px rgba(32,185,217,0.08);
 }
 
 /* LEFT */
@@ -165,7 +175,7 @@
 }
 
 .modal-right h4 {
-  color: #d4af37;
+  color: #9ED70A;
   margin-bottom: 20px;
 }
 
@@ -175,7 +185,7 @@
   margin-bottom: 20px;
 }
 
-/* SOCIAL */
+/* SOCIALS / CHIPS */
 .modal-socials {
   display: flex;
   gap: 10px;
@@ -183,7 +193,8 @@
 }
 
 .modal-socials span {
-  border: 1px solid #d4af37;
+  border: 1px solid rgba(158,215,10,0.4);
+  color: #9ED70A;
   padding: 6px 12px;
   border-radius: 20px;
   cursor: pointer;
@@ -191,8 +202,10 @@
 }
 
 .modal-socials span:hover {
-  background: #d4af37;
+  background: #9ED70A;
+  border-color: #9ED70A;
   color: #000;
+  box-shadow: 0 0 15px rgba(158,215,10,0.4);
 }
 
 /* AWARDS */
@@ -204,6 +217,7 @@
   margin-bottom: 8px;
   color: #aaa;
 }
+
 .awards-list {
   margin-top: 10px;
   animation: fadeUp 0.5s ease;
@@ -220,7 +234,7 @@
   }
 }
 
-/* 📱 TABLET + MOBILE (≤ 768px) */
+/* ================= 📱 TABLET + MOBILE (≤ 768px) ================= */
 @media (max-width: 768px) {
 
   .team-section {
@@ -232,7 +246,7 @@
     margin-bottom: 40px;
   }
 
-  /* 👉 Make cards scrollable (best UX) */
+  /* Make cards scrollable */
   .team-container {
     overflow-x: auto;
     justify-content: flex-start;
@@ -251,14 +265,14 @@
     scroll-snap-align: center;
   }
 
-  /* 👉 Robo adjust */
+  /* Robo adjust */
   .robo {
     top: -50px;
     left: 10px;
     transform: scale(0.8);
   }
 
-  /* 👉 Modal becomes vertical */
+  /* Modal becomes vertical */
   .team-modal {
     flex-direction: column;
     height: auto;
@@ -282,7 +296,8 @@
     font-size: 14px;
   }
 }
-/* 📱 SMALL PHONES (≤ 480px) */
+
+/* ================= 📱 SMALL PHONES (≤ 480px) ================= */
 @media (max-width: 480px) {
 
   .team-card {
@@ -305,7 +320,4 @@
   .modal-right h2 {
     font-size: 20px;
   }
-}
-.team-container {
-  scroll-behavior: smooth;
 }

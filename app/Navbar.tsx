@@ -92,7 +92,7 @@ export default function Navbar() {
           animate={{ opacity: 1, x: 0 }}
         >
           <Link href="/" className="brand-link">
-            <img src="/logo3.png" alt="Wonder 360 Tours" className="logo-img" />
+            <img src="/logo - Copy.png" alt="Wonder 360 Tours" className="logo-img" />
             <span className="tagline-text">Transforming Spaces into Stories</span>
           </Link>
         </motion.div>

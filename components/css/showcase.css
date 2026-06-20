@@ -10,7 +10,7 @@
 .showcase h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
-  color: #d4af37;
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
 }
 
 /* ================= AUTO SCROLL ================= */
@@ -38,7 +38,9 @@
   position: relative;
   flex-shrink: 0;
 
+  border: 1px solid rgba(255, 255, 255, 0.05);
   cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* IMAGE */
@@ -68,9 +70,16 @@
   z-index: 2;
 }
 
-/* HOVER */
+/* HOVER (WITH ADDED WONDER360 COMPLEMENTARY ACCENT GLOW) */
 .h-card:hover img {
   transform: scale(1.08);
+}
+
+.h-card:hover {
+  border-color: rgba(32, 185, 217, 0.4); /* 🔵 SECONDARY CYAN */
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(32, 185, 217, 0.2);
 }
 
 /* ANIMATION */
@@ -83,7 +92,7 @@
   }
 }
 
-/* ================= 📱 TABLET ================= */
+/* ================= 📱 TABLET (≤ 900px) ================= */
 
 @media (max-width: 900px) {
 
@@ -106,7 +115,7 @@
   }
 }
 
-/* ================= 📱 MOBILE ================= */
+/* ================= 📱 MOBILE (≤ 480px) ================= */
 
 @media (max-width: 480px) {
 
@@ -121,15 +130,12 @@
   /* 👉 STOP AUTO SCROLL */
   .scroll-track {
     animation: none;
+    scroll-snap-type: x mandatory;
   }
 
   /* 👉 ENABLE SWIPE */
   .auto-scroll {
     overflow-x: auto;
-  }
-
-  .scroll-track {
-    scroll-snap-type: x mandatory;
   }
 
   .h-card {
@@ -138,8 +144,13 @@
     scroll-snap-align: center;
   }
 
-  /* ❌ REMOVE HOVER */
+  /* ❌ REMOVE HOVER DEPENDENCIES ON TOUCH */
   .h-card:hover img {
     transform: none;
+  }
+  
+  .h-card:hover {
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
   }
 }

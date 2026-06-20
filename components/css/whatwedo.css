@@ -1,4 +1,5 @@
-/* SECTION */
+/* ================= SECTION ================= */
+
 .what {
   display: flex;
   align-items: center;
@@ -13,13 +14,13 @@
   overflow: hidden;
 }
 
-/* GOLD GLOW */
+/* 🟢 WONDER360 AMBIENT LIGHT (HYBRID GREEN & CYAN OVERLAY) */
 .what::before {
   content: "";
   position: absolute;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(212,175,55,0.12), transparent);
+  background: radial-gradient(circle, rgba(158,215,10,0.1) 0%, rgba(32,185,217,0.04) 50%, transparent 70%);
   left: 10%;
   top: 20%;
   filter: blur(120px);
@@ -44,7 +45,7 @@
 
   box-shadow:
     0 30px 80px rgba(0,0,0,0.7),
-    0 0 40px rgba(212,175,55,0.15);
+    0 0 40px rgba(158,215,10,0.15);
 
   filter: brightness(0.85) contrast(1.05);
 
@@ -101,7 +102,7 @@
   margin-bottom: 20px;
 
   color: transparent;
-  -webkit-text-stroke: 1px rgba(212,175,55,0.5);
+  -webkit-text-stroke: 1px rgba(158,215,10,0.6);
 }
 
 /* DESCRIPTION */
@@ -118,7 +119,7 @@
 }
 
 .what-item span {
-  color: #d4af37;
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
   font-size: 18px;
 }
 
@@ -134,7 +135,7 @@
   border-radius: 8px;
   cursor: pointer;
 
-  background: linear-gradient(135deg, #d4af37, #b8962e);
+  background: linear-gradient(135deg, #3D8500, #9ED70A); /* 🟢 BRAND GRADIENT */
   color: #000;
   font-weight: 600;
 
@@ -143,20 +144,15 @@
 
 .what-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(212,175,55,0.4);
+  box-shadow: 
+    0 10px 25px rgba(158,215,10,0.4),
+    0 0 30px rgba(32,185,217,0.2);
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .what {
-    flex-direction: column;
-  }
-
-  .what-image,
-  .what-content {
-    max-width: 100%;
-  }
+.what-btn:active {
+  transform: scale(0.97);
 }
+
 /* ================= 📱 TABLET (≤ 900px) ================= */
 @media (max-width: 900px) {
 
@@ -174,7 +170,7 @@
 
   /* IMAGE */
   .what-image img {
-    animation: none; /* ❌ remove heavy float */
+    animation: none; /* remove heavy float */
     transform: none;
   }
 
@@ -212,7 +208,8 @@
     align-self: center;
   }
 }
-/* ================= 📱 MOBILE ================= */
+
+/* ================= 📱 MOBILE (≤ 480px) ================= */
 @media (max-width: 480px) {
 
   .what {
@@ -222,7 +219,7 @@
 
   .what h2 {
     font-size: 1.6rem;
-    -webkit-text-stroke: 0.5px rgba(212,175,55,0.5);
+    -webkit-text-stroke: 0.5px rgba(158,215,10,0.6);
   }
 
   /* IMAGE */
@@ -249,12 +246,9 @@
     padding: 12px;
   }
 
-  /* ❌ remove hover */
+  /* remove hover tracking profiles on mobile screens */
   .what-btn:hover {
     transform: none;
     box-shadow: none;
   }
-}
-.what-btn:active {
-  transform: scale(0.97);
 }

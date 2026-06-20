@@ -1,3 +1,4 @@
+
 /* ================= SECTION ================= */
 
 .contact {
@@ -12,21 +13,21 @@
   text-decoration: none;
   color: inherit;
 }
-/* ================= GOLD MOVING LINES ================= */
+
+/* ================= WONDER360 MOVING LINES ================= */
 
 .contact-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
 
-  background:
-    repeating-linear-gradient(
-      120deg,
-      transparent,
-      transparent 40px,
-      rgba(212,175,55,0.05) 41px,
-      rgba(212,175,55,0.05) 42px
-    );
+  background: repeating-linear-gradient(
+    120deg,
+    transparent,
+    transparent 40px,
+    rgba(158,215,10,0.06) 41px,
+    rgba(158,215,10,0.06) 42px
+  );
 
   animation: moveLines 10s linear infinite;
 }
@@ -53,7 +54,7 @@
   margin-bottom: 20px;
 
   color: transparent;
-  -webkit-text-stroke: 1px rgba(212,175,55,0.6);
+  -webkit-text-stroke: 1px rgba(158,215,10,0.7);
 }
 
 /* ================= SUB ================= */
@@ -101,8 +102,8 @@
 
 .contact input:focus,
 .contact textarea:focus {
-  border-color: #d4af37;
-  box-shadow: 0 0 10px rgba(212,175,55,0.2);
+  border-color: #9ED70A;
+  box-shadow: 0 0 12px rgba(158,215,10,0.25);
 }
 
 /* PLACEHOLDER */
@@ -113,37 +114,46 @@
 }
 
 /* ================= BUTTON ================= */
+/* ================= FORCE BUTTON & INPUT THEME ================= */
 
 .contact-btn {
-  margin-top: 10px;
-  padding: 16px;
+  margin-top: 10px !important;
+  padding: 16px !important;
 
-  border: none;
-  border-radius: 10px;
+  border: none !important;
+  border-radius: 10px !important;
 
-  background: linear-gradient(135deg, #d4af37, #b8962e);
-  color: #000;
+  /* Force the Wonder360 Green gradient */
+  background: linear-gradient(135deg, #3D8500, #9ED70A) !important;
+  color: #000000 !important;
 
-  font-weight: 600;
-  cursor: pointer;
+  font-weight: 600 !important;
+  cursor: pointer !important;
 
-  transition: 0.3s;
+  transition: 0.3s !important;
 }
 
 .contact-btn:hover {
-  box-shadow: 0 10px 30px rgba(212,175,55,0.4);
+  box-shadow:
+    0 10px 30px rgba(158,215,10,0.35),
+    0 0 40px rgba(32,185,217,0.15) !important;
 }
 
-/* ================= RESPONSIVE ================= */
+.contact-btn:active {
+  transform: scale(0.97) !important;
+}
 
-@media (max-width: 768px) {
-  .row {
-    flex-direction: column;
-  }
+/* ================= FIX HIDDEN BOX BORDERS ================= */
 
-  .contact h2 {
-    font-size: 2.5rem;
-  }
+/* If your form container has a rogue yellow outline border */
+.contact-container, 
+.contact-form {
+  border-color: rgba(158,215,10,0.2) !important;
+}
+
+
+.contact-btn:active {
+  transform: scale(0.97);
 }
 
 /* ================= POPUP ================= */
@@ -160,11 +170,12 @@
   padding: 16px 28px;
   border-radius: 10px;
 
-  border: 1px solid rgba(212,175,55,0.4);
+  border: 1px solid rgba(158,215,10,0.4);
 
   box-shadow:
     0 10px 40px rgba(0,0,0,0.8),
-    0 0 20px rgba(212,175,55,0.2);
+    0 0 20px rgba(158,215,10,0.2),
+    0 0 35px rgba(32,185,217,0.1);
 
   backdrop-filter: blur(10px);
 
@@ -221,6 +232,7 @@
   }
 }
 
+/* ================= 📱 MOBILE (≤ 480px) ================= */
 @media (max-width: 480px) {
 
   .contact {
@@ -229,7 +241,7 @@
 
   .contact h2 {
     font-size: 1.8rem;
-    -webkit-text-stroke: 0.5px rgba(212,175,55,0.6);
+    -webkit-text-stroke: 0.5px rgba(158,215,10,0.7);
   }
 
   .contact-sub {
@@ -245,11 +257,9 @@
     padding: 12px;
   }
 
-  /* ❌ Reduce animation load */
+  /* Reduce animation load on older mobile screens */
   .contact-bg {
     animation: none;
   }
 }
-.contact-btn:active {
-  transform: scale(0.97);
-}
+

@@ -25,19 +25,20 @@
 
   box-shadow:
     0 20px 80px rgba(0,0,0,0.8),
-    0 0 40px rgba(212,175,55,0.15);
+    0 0 40px rgba(158,215,10,0.12),
+    0 0 50px rgba(32,185,217,0.06);
 
   overflow: hidden;
 }
 
-/* 🔥 GOLD GLOW BG */
+/* 🟢 WONDER360 BRAND GLOW BG */
 .feedback-card::before {
   content: "";
   position: absolute;
   width: 400px;
   height: 400px;
 
-  background: radial-gradient(circle, rgba(212,175,55,0.12), transparent);
+  background: radial-gradient(circle, rgba(158,215,10,0.1), rgba(32,185,217,0.04), transparent);
 
   top: -100px;
   right: -100px;
@@ -48,7 +49,7 @@
 /* ================= STARS ================= */
 
 .feedback-stars {
-  color: #d4af37;
+  color: #9ED70A;
   font-size: 20px;
   letter-spacing: 4px;
 }
@@ -95,7 +96,7 @@
   border-radius: 50%;
   object-fit: cover;
 
-  border: 2px solid rgba(212,175,55,0.4);
+  border: 2px solid rgba(158,215,10,0.4);
 }
 
 .feedback-user h4 {
@@ -108,6 +109,7 @@
   font-size: 13px;
   color: #888;
 }
+
 .feedback-wrapper {
   position: relative;
   width: 100%;
@@ -115,11 +117,6 @@
   justify-content: center;
 }
 
-.feedback-arrows {
-  position: absolute;
-  bottom: 20px;
-  right: 40px;
-}
 /* ================= ARROWS ================= */
 
 .feedback-arrows {
@@ -147,22 +144,14 @@
 }
 
 .arrow:hover {
-  border-color: #d4af37;
-  color: #d4af37;
+  border-color: #9ED70A;
+  color: #9ED70A;
   transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(158,215,10,0.2);
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 768px) {
-  .feedback-card {
-    padding: 30px;
-    width: 95%;
-  }
-
-  .feedback-quote {
-    font-size: 15px;
-  }
+.arrow:active {
+  transform: scale(0.95);
 }
 
 /* ================= 📱 TABLET (≤ 768px) ================= */
@@ -223,6 +212,8 @@
     margin-top: 20px;
   }
 }
+
+/* ================= 📱 MOBILE (≤ 480px) ================= */
 @media (max-width: 480px) {
 
   .feedback-card {
@@ -251,7 +242,4 @@
     height: 38px;
     font-size: 14px;
   }
-}
-.arrow:active {
-  transform: scale(0.95);
 }

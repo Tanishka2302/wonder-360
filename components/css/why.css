@@ -14,13 +14,13 @@
   overflow: hidden;
 }
 
-/* 🔥 GOLD AMBIENT GLOW */
+/* 🟢 WONDER360 AMBIENT LIGHT (HYBRID GREEN & CYAN OVERLAY) */
 .why::before {
   content: "";
   position: absolute;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(212,175,55,0.12), transparent);
+  background: radial-gradient(circle, rgba(158,215,10,0.12) 0%, rgba(32,185,217,0.04) 50%, transparent 70%);
   right: 10%;
   top: 20%;
   filter: blur(120px);
@@ -40,7 +40,7 @@
   margin-bottom: 30px;
 
   color: transparent;
-  -webkit-text-stroke: 1px rgba(212,175,55,0.5);
+  -webkit-text-stroke: 1px rgba(158,215,10,0.6);
 }
 
 /* LIST */
@@ -54,7 +54,7 @@
 }
 
 .why-item span {
-  color: #d4af37;
+  color: #9ED70A; /* 🟢 PRIMARY GREEN */
   font-size: 18px;
 }
 
@@ -81,7 +81,7 @@
 
   box-shadow:
     0 40px 100px rgba(0,0,0,0.9),
-    0 0 50px rgba(212,175,55,0.15);
+    0 0 50px rgba(158,215,10,0.15);
 
   filter: brightness(0.85) contrast(1.05);
 
@@ -139,11 +139,11 @@
 .stat h3 {
   font-size: 52px;
   font-weight: 700;
-  color: #d4af37;
+  color: #9ED70A;
 
   text-shadow:
-    0 0 10px rgba(212,175,55,0.3),
-    0 0 25px rgba(212,175,55,0.2);
+    0 0 10px rgba(158,215,10,0.25),
+    0 0 25px rgba(32,185,217,0.15);
 }
 
 .stat p {
@@ -161,14 +161,14 @@
 
   background: linear-gradient(
     90deg,
-    #d4af37,
+    #9ED70A,
     transparent
   );
 
   opacity: 0.4;
 }
 
-/* ================= 📱 TABLET ================= */
+/* ================= 📱 TABLET (≤ 900px) ================= */
 
 @media (max-width: 900px) {
 
@@ -200,15 +200,15 @@
     font-size: 40px;
   }
 
-  /* reduce glow */
+  /* reduce ambient glow layout scale */
   .why::before {
     width: 350px;
     height: 350px;
     right: 50%;
-    transform: translateX(50%);
+    transform: translateX(-50%);
   }
 
-  /* remove heavy animation */
+  /* eliminate complex motion dependencies */
   .why-image img {
     animation: none;
   }
@@ -218,7 +218,7 @@
   }
 }
 
-/* ================= 📱 MOBILE ================= */
+/* ================= 📱 MOBILE (≤ 480px) ================= */
 
 @media (max-width: 480px) {
 
@@ -226,13 +226,15 @@
     padding: 60px 15px;
   }
 
-  /* FIX TITLE */
+  /* FIXED SOLID BRAND TITLE ACCENT */
   .why h2 {
     font-size: 1.8rem;
 
-    color: #d4af37;
+    color: #9ED70A;
     -webkit-text-stroke: 0;
-    text-shadow: 0 0 15px rgba(212,175,55,0.3);
+    text-shadow: 
+      0 0 15px rgba(158,215,10,0.25),
+      0 0 30px rgba(32,185,217,0.1);
   }
 
   .why-item {
@@ -252,12 +254,12 @@
     font-size: 12px;
   }
 
-  /* remove hover */
+  /* remove cursor tracking states */
   .why-image:hover img {
     transform: none;
   }
 
-  /* touch feedback */
+  /* touch active profile */
   .stat:active {
     transform: scale(0.97);
   }
